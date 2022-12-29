@@ -111,12 +111,12 @@ class First_Poll
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
         return $error;
     }
-    public function find_poll_by_attribute($attribute, $value)
+    public function find_poll_by_attribute($value)
     {
         global $database;
         $error = null;
 
-        $sql = "select * from polls where ".$attribute." = '".$value."'";
+        $sql = "select * from polls where user_name = '".$value."'";
         $result = $database -> query($sql);
         if(!$result)
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
@@ -126,10 +126,10 @@ class First_Poll
             $this -> instantation($found_poll);
         }
         else
-            $error = "Can't find poll by this value";
+            $error = "Can't find poll by this user_name";
         return $error;
     }
-    // this function will return if the user answered all the poll.
+    // this function will return if the user answered all the poll, and if not how much of it he answered .
     public function first_poll_full_status()
     {
         $user_progress = 0;
@@ -163,6 +163,8 @@ class First_Poll
         }
         return $user_progress * 100;
     }  
+
+    public 
 
 
 }
