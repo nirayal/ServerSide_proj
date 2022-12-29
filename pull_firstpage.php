@@ -1,5 +1,5 @@
 <?php
-    require_once("includes\init.php");
+    require_once("includes/init.php");
     require_once("Pull.php");
     require_once("questions_define.php");
 
