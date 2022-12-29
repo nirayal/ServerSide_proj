@@ -26,12 +26,13 @@ class First_Pull
         return "Pull: || number: ".$this->pull_number." | by user: ".$this->user_name." | status: ".$this->pull_status." ||<br>";
     }
 
-    public function __construct()
+    public function __construct($user_name)
     {
         $this -> pull_number = self :: $pull_counter;
         self :: $pull_counter ++;
         $this -> pull_status = "non-final";
-        $this -> user_name = $_SESSION['user_id'];
+        // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
+        $this->user_name = $user_name; // meanwhile we gonna do that
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
         $this -> QUES_13 = null;
@@ -94,7 +95,7 @@ class First_Pull
         global $database;
         $error = null;
 
-        $sql = "insert into pulls(pull_number, pull_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> pull_number."','".$this -> user_name."','".$this -> pull_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138,"')";
+        $sql = "insert into pulls(pull_number, pull_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> pull_number."','".$this -> user_name."','".$this -> pull_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
         $result = $database -> query($sql);
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
