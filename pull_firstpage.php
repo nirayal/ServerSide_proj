@@ -1,6 +1,6 @@
 <?php
     require_once("includes\init.php");
-    require_once("Pull.php");
+    require_once("Poll.php")
     require_once("questions_define.php");
 
     $error = null;
@@ -156,7 +156,11 @@
             echo $error;
         }
         else{          
-            // $new_first_pull = new first_pull()
+            $new_first_poll = new First_Poll("liorilior55");
+
+            echo($new_first_poll);
+            $error = $new_first_poll -> add_poll()
+
             
             
             // enter to DB
@@ -179,14 +183,17 @@
 <html>
     <head>
         <title>
-            Transportaion pull
+            Transportaion poll
+
         </title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <form>
-            <h1>Transportation Pull</h1>
-            <h2>Transportation Pull - part 1/3</h2>
+            <h1>Transportation Poll</h1>
+
+            <h2>Transportation Poll - part 1/3</h2>
+
 
             <p>from witch city do you drive to the collage? <input type="text" name="city"></p>
             <p>witch area of the city? <input type="text" name="area"></p>
