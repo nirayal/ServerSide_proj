@@ -164,7 +164,10 @@ class First_Poll
         return $user_progress * 100;
     }  
 
-    public 
+    public function pull_poll()
+    {
+        
+    }
 
 
 }
