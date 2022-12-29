@@ -216,8 +216,8 @@
             <h2>Transportation Poll - part 1/3</h2>
 
 
-            <p>from witch city do you drive to the collage? <input type="text" name="city"></p>
-            <p>witch area of the city? <input type="text" name="area"></p>
+            <p>from witch city do you drive to the collage? <input type="text" maxlength="200" name="city"></p>
+            <p>witch area of the city? <input type="text" maxlength="200" name="area"></p>
 
             <div>
                 witch transport vehicle do you use (please select 2 vehicles)?<br>
