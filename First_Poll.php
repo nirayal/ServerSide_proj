@@ -32,7 +32,7 @@ class First_Poll
         self :: $poll_counter ++;
         $this -> poll_status = "non-final";
         // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
-        $this->user_name = $user_name; // meanwhile we gonna do that
+        $this-> user_name = $user_name; // meanwhile we gonna do that
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
         $this -> QUES_13 = null;
@@ -54,6 +54,12 @@ class First_Poll
             return $this -> $property;
         }
     }
+    public function __set($property, $value)
+    {
+        if (property_exists($this, $property)) 
+            $this->$property = $value;
+    }
+
     public function setPollFinal()
     {
         $this->poll_status = "non-final";
@@ -97,17 +103,6 @@ class First_Poll
 
         $sql = "insert into first_poll(poll_number, poll_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
         $result = $database -> query($sql);
-        $this -> QUES_11 = null;
-        $this -> QUES_12 = null;
-        $this -> QUES_13 = null;
-        $this -> QUES_131 = null;
-        $this -> QUES_132 = null;
-        $this -> QUES_133 = null;
-        $this -> QUES_134 = null;
-        $this -> QUES_135 = null;
-        $this -> QUES_136 = null;
-        $this -> QUES_137 = null;
-        $this -> QUES_138 = null;
 
         if(!$result)    
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
@@ -166,5 +161,6 @@ class First_Poll
         return $user_progress * 100;
     }  
 
+    public function 
 
 }
