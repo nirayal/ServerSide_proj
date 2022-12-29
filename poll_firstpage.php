@@ -194,7 +194,7 @@
             $error = $poll->add_poll();
 
             echo ("poll has been added to the DB<br>");
-            echo("this is the object that has been added: ".$new_first_poll);                
+            echo("this is the object that has been added: ".$poll);                
 
         }
     }
