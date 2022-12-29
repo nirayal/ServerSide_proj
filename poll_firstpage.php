@@ -1,6 +1,6 @@
 <?php
     require_once("includes\init.php");
-    require_once("Poll.php")
+    require_once("Poll.php");
     require_once("questions_define.php");
 
     $error = null;
@@ -159,7 +159,7 @@
             $new_first_poll = new First_Poll("liorilior55");
 
             echo($new_first_poll);
-            $error = $new_first_poll -> add_poll()
+            $error = $new_first_poll->add_poll();
 
             
             

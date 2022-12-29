@@ -2,12 +2,12 @@
 require_once("includes\init.php");
 
 
-class First_Pull
+class First_Poll
 {
-    private $pull_number;
+    private $poll_number;
     private $user_name;
-    private $pull_status; 
-    static $pull_counter = 1;
+    private $poll_status; 
+    static $poll_counter = 1;
     private $QUES_11;
     private $QUES_12;
     private $QUES_13;
@@ -20,17 +20,17 @@ class First_Pull
     private $QUES_137;
     private $QUES_138;
 
-    public function Pull()
+    public function Poll()
     {}
     function __toString(){ //for test to print the object
-        return "Pull: || number: ".$this->pull_number." | by user: ".$this->user_name." | status: ".$this->pull_status." ||<br>";
+        return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
     }
 
-    public function __construct($user_name)
+    public function __construct($user_name = null)
     {
-        $this -> pull_number = self :: $pull_counter;
-        self :: $pull_counter ++;
-        $this -> pull_status = "non-final";
+        $this -> poll_number = self :: $poll_counter;
+        self :: $poll_counter ++;
+        $this -> poll_status = "non-final";
         // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
         $this->user_name = $user_name; // meanwhile we gonna do that
         $this -> QUES_11 = null;
@@ -54,13 +54,13 @@ class First_Pull
             return $this -> $property;
         }
     }
-    public function setPullFinal()
+    public function setPollFinal()
     {
-        $this->pull_status = "non-final";
+        $this->poll_status = "non-final";
     }
-    private function instantation($pull_array)
+    private function instantation($poll_array)
     {
-        foreach($pull_array as $attribute => $value)
+        foreach($poll_array as $attribute => $value)
             if($result = $this -> has_attribute($attribute))
                 $this -> $attribute = $value;
     }
@@ -69,12 +69,12 @@ class First_Pull
         $object_properties = get_object_vars($this);
         return array_key_exists($attribute, $object_properties);
     }
-    public static function fetch_pulls()
+    public static function fetch_polls()
     {
         global $database;
-        $sql = "select * from First_Pull";
+        $sql = "select * from first_poll";
         $result = $database -> query($sql);
-        $pulls = null;
+        $polls = null;
 
         if($result)
         {
@@ -82,20 +82,20 @@ class First_Pull
             if($result -> num_rows > 0)
                 while($row = $result -> fetch_assoc())
                 {
-                    $pull = new First_Pull();
-                    $pull -> instantation($row);
-                    $pulls [$i] = $pull;
+                    $poll = new First_Poll();
+                    $poll -> instantation($row);
+                    $polls [$i] = $poll;
                     $i += 1;
                 }
         }
-        return $pulls;
+        return $polls;
     }
-    public function add_pull()
+    public function add_poll()
     {
         global $database;
         $error = null;
 
-        $sql = "insert into pulls(pull_number, pull_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> pull_number."','".$this -> user_name."','".$this -> pull_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
+        $sql = "insert into first_poll(poll_number, poll_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
         $result = $database -> query($sql);
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
@@ -110,29 +110,29 @@ class First_Pull
         $this -> QUES_138 = null;
 
         if(!$result)    
-            $error = "coul'd not find pull. Error is :". $database -> get_connection() -> error;
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
         return $error;
     }
-    public function find_pull_by_attribute($attribute, $value)
+    public function find_poll_by_attribute($attribute, $value)
     {
         global $database;
         $error = null;
 
-        $sql = "select * from pulls where ".$attribute." = '".$value."'";
+        $sql = "select * from first_poll where ".$attribute." = '".$value."'";
         $result = $database -> query($sql);
         if(!$result)
-            $error = "coul'd not find pull. Error is :". $database -> get_connection() -> error;
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
         elseif($result -> num_rows >0)
         {
             $found_pull = $result ->fetch_assoc();
             $this -> instantation($found_pull);
         }
         else
-            $error = "Can't find pull by this value";
+            $error = "Can't find poll by this value";
         return $error;
     }
-    // this function will return if the user answered all the pull.
-    public function first_pull_full_status()
+    // this function will return if the user answered all the poll.
+    public function first_poll_full_status()
     {
         $user_progress = 0;
         if($this -> QUES_11 != null)
