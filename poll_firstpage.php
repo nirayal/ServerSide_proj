@@ -1,6 +1,6 @@
 <?php
     require_once("includes\init.php");
-    require_once("Poll.php");
+    require_once("First_Poll.php");
     require_once("questions_define.php");
 
     $error = null;
@@ -155,25 +155,46 @@
         if(isset($error)){
             echo $error;
         }
-        else{          
-            $new_first_poll = new First_Poll("liorilior55");
-
-            echo($new_first_poll);
-            $error = $new_first_poll->add_poll();
-
+        else{   
+            $poll = new First_Poll("lioriloior"); //meanwhile this
+            // $poll->user_name = $_SESSION['user_name']; for the time that we gonna have login succsesfully
+            $poll->QUES_11 = $_GET['city'];
+            $poll->QUES_12 = $_GET['area'];
+            $poll->QUES_13 = $_GET['vehicle1'];
+            if($_GET['vehicle1'] == 'car'){
+                $poll->QUES_131 = $_GET['time_car1'];
+                $poll->QUES_132 = $_GET['car2'];
+                $poll->QUES_133 = $_GET['time_car3'];
+            }
+            if($_GET['vehicle1'] == 'bus'){
+                $poll->QUES_131 = $_GET['time_bus1'];
+                $poll->QUES_132 = $_GET['bus2'];
+                $poll->QUES_133 = $_GET['time_bus3'];
+            }
+            if($_GET['vehicle1'] == 'motor'){
+                $poll->QUES_131 = $_GET['time_motor1'];
+                $poll->QUES_132 = $_GET['motor2'];
+                $poll->QUES_133 = $_GET['time_motor3'];
+            }
+            if($_GET['vehicle1'] == 'bike'){
+                $poll->QUES_134 = $_GET['time_bike1'];
+                $poll->QUES_135 = $_GET['bike2'];
+                $poll->QUES_136 = $_GET['bike3'];
+            }
+            if($_GET['vehicle1'] == 'ebike'){
+                $poll->QUES_134 = $_GET['time_ebike1'];
+                $poll->QUES_135 = $_GET['ebike2'];
+                $poll->QUES_136 = $_GET['ebike3'];
+            }
+            if($_GET['vehicle1'] == 'foot'){
+                $poll->QUES_137 = $_GET['time_toof1'];
+                $poll->QUES_138 = $_GET['foot2'];
+            }
             
-            
-            // enter to DB
+            $error = $poll->add_poll();
 
-
-            // $new_product = new Product ($_GET['name'],(int)$_GET['price'],(int)$_GET['amount']);
-            // // echo ($new_product); for test
-            // $error = $new_product -> add_product();
-            // if(isset($error))
-            //     echo $error;
-            // else
-            //     echo ("product has been added to the DATABASE");
-            
+            echo ("poll has been added to the DB<br>");
+            echo("this is the object that has been added: ".$new_first_poll);                
 
         }
     }
