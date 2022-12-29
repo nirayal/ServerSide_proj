@@ -13,16 +13,7 @@
     define('QUES_136','do you stand in red lights?');
     define('QUES_137','what is the avarge time that you spends on the way to the collage?');
     define('QUES_138','what is the distance to the collage from your home?');
-    define('QUES_141','what is the avarge time that you spends on the way to the collage?');
-    define('QUES_142','is the driven time is similar every time?');
-    define('QUES_143','how much time do you spend on traffics?');
-    define('QUES_144','what is the avarge time that you spends on the way to the collage?');
-    define('QUES_145','do you ride only on bike paths?');
-    define('QUES_146','do you stand in red lights?');
-    define('QUES_147','what is the avarge time that you spends on the way to the collage?');
-    define('QUES_148','what is the distance to the collage from your home?');
-   
-   
+
    
     
 

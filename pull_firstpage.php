@@ -1,5 +1,5 @@
 <?php
-    require_once("includes/init.php");
+    require_once("includes\init.php");
     require_once("Pull.php");
     require_once("questions_define.php");
 
@@ -38,11 +38,9 @@
             } elseif ((int) $_GET['time_car1'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
 
-            if (!$_GET['car2']) {
-                $error .= "Error : Answer required for car question 2.<br>";
-            } else
-                if ($_GET['car2'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for car question 2.<br>";
+            if ($_GET['car2'] == 'null') {
+                $error .= "Error : Please choose Yes or No for car question 2.<br>";
+            }
 
             if (!$_GET['time_car3']) {
                 if ($_GET['time_car3'] == '0')
@@ -62,12 +60,10 @@
             } elseif ((int) $_GET['time_bus1'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
 
-            if (!$_GET['bus2']) {
-                $error .= "Error : Answer required for bus question 2.<br>";
-            } else
-                if ($_GET['bus2'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for bus question 2.<br>";
-
+            if ($_GET['bus2'] == 'null') {
+                $error .= "Error : Please choose Yes or No for bus question 2.<br>";
+            }
+            
             if (!$_GET['time_bus3']) {
                 if ($_GET['time_bus3'] == '0')
                     $error .= "Error : time cannot be zero.<br>";
@@ -86,11 +82,9 @@
             } elseif ((int) $_GET['time_motor1'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
 
-            if (!$_GET['motor2']) {
-                $error .= "Error : Answer required for motor question 2.<br>";
-            } else
-                if ($_GET['motor2'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for motor question 2.<br>";
+            if ($_GET['motor2'] == 'null') {
+                $error .= "Error : Please choose Yes or No for motor question 2.<br>";
+            }
 
             if (!$_GET['time_motor3']) {
                 if ($_GET['time_motor3'] == '0')
@@ -110,17 +104,13 @@
             } elseif ((int) $_GET['time_bike1'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
 
-            if (!$_GET['bike2']) {
-                $error .= "Error : Answer required for bike question 2.<br>";
-            } else
-                if ($_GET['bike2'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for bike question 2.<br>";
-
-            if (!$_GET['bike3']) {
-                $error .= "Error : Answer required for bike question 3.<br>";
-            } else
-                if ($_GET['bike3'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for bike question 3.<br>";
+            if ($_GET['bike2'] == 'null') {
+                $error .= "Error : Please choose Yes or No for bike question 2.<br>";
+            }
+            
+            if ($_GET['bike3'] == 'null') {
+                $error .= "Error : Please choose Yes or No for bike question 3.<br>";
+            }
         }
 
         if ($_GET['vehicle1'] == 'e-bike') {
@@ -132,17 +122,13 @@
             } elseif ((int) $_GET['time_ebike1'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
 
-            if (!$_GET['ebike2']) {
-                $error .= "Error : Answer required for e-bike question 2.<br>";
-            } else
-                if ($_GET['ebike2'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for e-bike question 2.<br>";
-
-            if (!$_GET['ebike3']) {
-                $error .= "Error : Answer required for e-bike question 3.<br>";
-            } else
-                if ($_GET['ebike3'] != 'yes' || 'no')
-                    $error .= "Error : Only recive yes / no answer for e-bike question 3.<br>";
+            if ($_GET['ebike2'] == 'null') {
+                $error .= "Error : Please choose Yes or No for e-bike question 2.<br>";
+            }
+            
+            if ($_GET['ebike3'] == 'null') {
+                $error .= "Error : Please choose Yes or No for e-bike question 3.<br>";
+            }
         }
 
         if ($_GET['vehicle1'] == 'foot') {
@@ -170,10 +156,19 @@
             echo $error;
         }
         else{          
-            
+            // $new_first_pull = new first_pull()
             
             
             // enter to DB
+
+
+            // $new_product = new Product ($_GET['name'],(int)$_GET['price'],(int)$_GET['amount']);
+            // // echo ($new_product); for test
+            // $error = $new_product -> add_product();
+            // if(isset($error))
+            //     echo $error;
+            // else
+            //     echo ("product has been added to the DATABASE");
             
 
         }
@@ -210,42 +205,69 @@
                 <option value="foot">Foot</option>
                 <option value="motorcycle">Motorcycle</option>
                </select>
-
             </p>
                 
             <div id = "car">
                 <p><b>vehicle choosen - car</b></p>
                 <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_car1"></p>
-                <p>2. is the driven time is similar every time? <input type="text" name="car2"></p>
+                <p>2. is the driven time is similar every time? <select name = "car2" id="car2">
+                    <option value="null">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    </select></p>
                 <p>3. how much time do you spend on traffics? <input type="number" name="time_car3"></p>
             </div>            
             
             <div id = "bus">
                 <p><b>vehicle choosen - bus</b></p>
                 <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bus1"></p>
-                <p>2. is the driven time is similar every time? <input type="text" name="bus2"></p>
+                <p>2. is the driven time is similar every time? <select name = "bus2" id="bus2">
+                    <option value="null">Select</option>    
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    </select></p>
                 <p>3. how much time do you spend on traffics? <input type="number" name="time_bus3"></p>
             </div>
 
             <div id = "motor">
                 <p><b>vehicle choosen - motorcycle</b></p>
                 <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_motor1"></p>
-                <p>2. is the driven time is similar every time? <input type="text" name="motor2"></p>
+                <p>2. is the driven time is similar every time? <select name = "motor2" id="motor2">
+                    <option value="null">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select></p>
                 <p>3. how much time do you spend on traffics? <input type="number" name="time_motor3"></p>
             </div>
 
             <div id = "bike">
                 <p><b>vehicle choosen - bike </b></p>
                 <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bike1"></p>
-                <p>2. do you ride only on bike paths? <input type="text" name="bike2"></p>
-                <p>3. do you stand in red lights? <input type="text" name="bike3"></p>
+                <p>2. do you ride only on bike paths? <select name = "bike2" id="bike2">
+                    <option value="null">Select</option>  
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select></p>
+                <p>3. do you stand in red lights? <select name = "bike3" id="bike3">
+                    <option value="null">Select</option>    
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select></p>
             </div>
             
             <div id = "e-bike">
                 <p><b>vehicle choosen - e-bike</b></p>
                 <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_ebike1"></p>
-                <p>2. do you ride only on bike paths? <input type="text" name="ebike2"></p>
-                <p>3. do you stand in red lights? <input type="text" name="ebike3"></p>
+                <p>2. do you ride only on bike paths? <select name = "ebike2" id="ebike2">
+                    <option value="null">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select></p>
+                <p>3. do you stand in red lights? <select name = "ebike3" id="ebike3">
+                    <option value="null">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select></p>
             </div>
             
             <div id = "foot">
