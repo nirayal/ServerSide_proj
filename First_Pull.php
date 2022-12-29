@@ -82,7 +82,7 @@ class First_Pull
             if($result -> num_rows > 0)
                 while($row = $result -> fetch_assoc())
                 {
-                    $pull = new Pull();
+                    $pull = new First_Pull();
                     $pull -> instantation($row);
                     $pulls [$i] = $pull;
                     $i += 1;
