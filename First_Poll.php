@@ -32,7 +32,7 @@ class First_Poll
         self :: $poll_counter ++;
         $this -> poll_status = "non-final";
         // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
-        $this-> user_name = $user_name; // meanwhile we gonna do that
+        $this -> user_name = $user_name; // meanwhile we gonna do that
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
         $this -> QUES_13 = null;

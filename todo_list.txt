@@ -1,0 +1,3 @@
+1 - we need to take care of the navbar in "index"
+2 - we need to decide if we want to move all "sign-up" & "login" pages into "index".
+3 - we need to make acss to the index file - need to look better.
