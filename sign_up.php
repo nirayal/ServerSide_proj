@@ -13,7 +13,7 @@ if(!$_POST)
         {
             if(!ctype_alpha($char) || !is_numeric($char))
             {
-                $error .= "Error:  Full Name must contain only letters.<br>";
+                $error .= "Error:  User Name must contain only letters.<br>";
                 break;
             }
         }  

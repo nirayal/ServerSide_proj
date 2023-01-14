@@ -13,8 +13,9 @@
     define('QUES_136','do you stand in red lights?');
     define('QUES_137','what is the avarge time that you spends on the way to the collage?');
     define('QUES_138','what is the distance to the collage from your home?');
-
-   
-    
-
+    define('QUES_11','');
+    define('QUES_12','');
+    define('QUES_13','');
+    define('QUES_131','');
+    define('QUES_132','');
 ?>

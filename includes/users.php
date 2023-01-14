@@ -32,6 +32,24 @@ class User
             return $this -> $property;
     }
 
+    public function find_user_by_username_pass($user_name, $password)
+    {
+        global $database;
+        $error = null;
+        
+        $result = $database->query("select * from users where user_name  = '". $user_name."' and password = '". $password."'");
+        if(!$result)
+            $error = "coul'd not find user. Error is :" . $database->get_connection()->error;
+        elseif($result->num_rows = 0)
+        {
+            $found_user = $result->fetch_assoc();
+            $this->instantation($found_user);
+        }
+        else
+            $error = "Can't find user by this user name " . $user_name;
+        return $error;
+    }
+
     public function find_user_by_attribute($attribute, $value)
     {
         global $database;
