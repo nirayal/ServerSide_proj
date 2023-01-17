@@ -17,23 +17,24 @@
             }           
         }
 
-        if (isset($_GET['q_22'])) {
+        if ($_GET['q_22'] == 'null') {
             $error .= "Error:  Question 2 is must be answered.<br>"; }   
 
-        if (isset($_GET['q_23'])) {
+        if ($_GET['q_23'] == 'null') {
             $error .= "Error:  Question 3 is must be answered.<br>"; }
-        
-        if ( ! $_GET['q_231']) {
-            $error .= "Error:  Question 3.1 is required.<br>"; }
-        else {
-            $chars = str_split($_GET['q_231']);
-            foreach ($chars as $char){
-                if(! ctype_alpha($char)){
-                    $error .= "Error:  Question 3.1 must contain only letters.<br>";
-                    break;
+        else
+            if($_GET['q_23'] == "yes")
+                if( ! $_GET['q_231'])
+                    $error .= "Error:  Question 3.1 is required if you choose Yes in question 2.<br>";    
+                else {
+                    $chars = str_split($_GET['q_231']);
+                    foreach ($chars as $char){
+                        if(! ctype_alpha($char)){
+                            $error .= "Error:  Question 3.1 must contain only letters.<br>";
+                            break;
+                        }
+                    }           
                 }
-            }           
-        }
         
         if ( ! $_GET['q_24']) {
             $error .= "Error:  Question 4 is required.<br>"; } 
@@ -46,8 +47,9 @@
                 }
             }    
         }
-        if (isset($_GET['q_25'])) {
-            $error .= "Error:  Question 5 is must be answered.<br>"; }
+
+        if ($_GET['q_25'] == 'null') {
+            $error .= "Error:  Question 5 is required.<br>";    }
         
         if(isset($error)){
             echo $error;
