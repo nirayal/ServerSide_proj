@@ -27,5 +27,4 @@
     define('QUES_33','How do you think the cost of public transportation compares to the cost of owning and maintaining a personal light transportation vehicle?');
     define('QUES_34','How safe do you feel using shared self-light transportation?');
 
-
 ?>
