@@ -191,10 +191,13 @@
                 $poll->QUES_138 = $_GET['foot2'];
             }
             
-            $error = $poll->add_poll();
-
-            echo ("poll has been added to the DB<br>");
-            echo("this is the object that has been added: ".$poll);                
+            $error = $poll->add_first_poll();
+            if(isset($error)){
+                echo ("poll has been added to the DB<br>");
+                echo("this is the object that has been added: ".$poll);                
+            }
+            else
+                echo ($error);            
 
         }
     }

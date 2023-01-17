@@ -23,7 +23,7 @@
 
     define('QUES_31','would you use a share light transportation such as e-scooter or e-bike?');
     define('QUES_32','have you noticed any improvements or declines in public light transportation in your area in recent years?');
-    define('QUES_331','name one way that the goverment should invest to inprove public light transportation?'); //if yes - JS
+    define('QUES_321','name one way that the goverment should invest to inprove public light transportation?'); //if yes - JS
     define('QUES_33','How do you think the cost of public transportation compares to the cost of owning and maintaining a personal light transportation vehicle?');
     define('QUES_34','How safe do you feel using shared self-light transportation?');
 

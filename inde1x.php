@@ -20,6 +20,7 @@
         <p>To the Transportaion Poll : <button><a href="poll_firstpage.php">Transportaion Poll</a></button></p>
         <p>To the poll statistics : <button><a href="#">Statistics</a></button></p>
         
+        
         <!-- sign up section -->
         <div id = "sign_up" class = "modal"> 
             <span onclick = "document.getElementById('sign_up').style.display='none'" class = "close" title = "Close Modal">&times;</span>
