@@ -5,18 +5,6 @@
 
     $error = null;
     if ($_GET){
-        if ( ! $_GET['q_21']) {
-            $error .= "Error:  Question 1 is required.<br>";    }
-        else {
-            $chars = str_split($_GET['q_21']);
-            foreach ($chars as $char){
-                if(! ctype_alpha($char)){
-                    $error .= "Error:  Question 1 must contain only letters.<br>";
-                    break;
-                }
-            }           
-        }
-
         if ($_GET['q_22'] == 'null') {
             $error .= "Error:  Question 2 is must be answered.<br>"; }   
 
