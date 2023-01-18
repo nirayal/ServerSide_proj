@@ -103,7 +103,14 @@
                 <p>3.1. name one way that the collage should invest to inprove public transportation? <input type="text" maxlength="200" name="q_231"></p>
             </div>            
             
-            <p>4. How do you think the cost of public transportation compares to the cost of owning and maintaining a personal vehicle? <input type="text" maxlength="200" name="q_24"></p>
+            <p>4. How do you think the cost of public transportation compares to the cost of owning and maintaining a personal vehicle? 
+                <select name="q_24" id="q_24">
+                    <option value="null">Enter Value</option>    
+                    <option value="cheaper">public transportation much cheaper then personal vehicle</option>
+                    <option value="equal">public transportation is equal to personal vehicle</option>
+                    <option value="expensive">public transportation more expensive then personal vehicle</option>
+                </select>
+            </p>
             
             <p>5. How safe do you feel using public transportation?
             <select name="q_25" id="q_25">
@@ -114,12 +121,16 @@
             </select>
             </p>
 
-            <p><input type="submit"></p>
+            <p><input type="submit" onclick = "movingPage()"></p> 
         </form>
         <p>To the Transportaion Poll part 3 : <button><a href="poll_third_page.php">Transportaion Poll Part 3</a></button></p>
         <p>To the Transportaion Poll part 1 : <button><a href="poll_first_page.php">Transportaion Poll Part 1</a></button></p>
         <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
         <script>
+                function movingPage(){
+                    window.location.href="poll_third_page.php";
+                }
+
                 function updateText_q_23() {
                     var answer = document.getElementById("q_23").value;                   
                     if(answer == 'yes'){
