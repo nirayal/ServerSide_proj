@@ -38,12 +38,11 @@
             $error = $third_poll->add_third_poll();
             if(isset($error)){
                 echo ("poll has been added to the DB<br>");
-                echo("this is the object that has been added: ".$third_poll);                
+                echo("this is the object that has been added: ".$third_poll);    
+                $third_poll -> set_third_poll_final();            
             }
             else
                 echo ($error);
-            
-            $third_poll -> set_third_poll_final();
         }
     }
 ?>
