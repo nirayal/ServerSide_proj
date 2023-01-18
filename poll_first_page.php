@@ -16,7 +16,7 @@
                 }
             }           
         }
-
+    echo ("nirnirnirnirnrinrinrinrinr");
         if ( ! $_GET['area']) {
             $error .= "Error:  The area is required.<br>";    }
         else {
@@ -208,7 +208,6 @@
     <head>
         <title>
             Transportaion poll
-
         </title>
         <link rel="stylesheet" href="style.css">
     </head>
