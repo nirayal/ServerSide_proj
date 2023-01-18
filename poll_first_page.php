@@ -213,6 +213,7 @@
     </head>
     <body>
         <form>
+            
             <h1>Transportation Poll</h1>
 
             <h2>Transportation Poll - part 1/3</h2>
@@ -303,11 +304,15 @@
                 <p>5. what is the distance to the collage from your home (in KM )? <input type="number" name="foot2"></p>
             </div>
 
-            <p><a href ="poll_second_page.php"><input type="submit"></a></p>
+            <p><input type="submit" onclick = "movingPage()"></a></p>
         </form>
         <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
 
         <script>
+                function movingPage(){
+                    window.location.href="poll_second_page.php";
+                }
+
                 function updateText1() {
                     var answer = document.getElementById("vehicle1").value;                   
                     if(answer == 'car'){

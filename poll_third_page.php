@@ -71,40 +71,54 @@
 
             <h2>Transportation Poll - part 3/3</h2>
 
-            <p>1. Would you use a share light transportation such as e-scooter or e-bike? <select name = "q_31" id="q_31">
-                <option value="null">Select</option>    
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select></p>
+            <p>1. Would you use a share light transportation such as e-scooter or e-bike? 
+                <select name = "q_31" id="q_31">
+                    <option value="null">Select</option>    
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </p>
 
-            <div>
-                2. Have you noticed any improvements or declines in public light transportation in your area in recent years?
-            </div>                
-            <select name="q_32" id="q_32" onchange="updateText_q_32()">
-                <option value="null">Enter Value</option>    
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-                            
+            <p>2. Have you noticed any improvements or declines in public light transportation in your area in recent years?
+                <select name="q_32" id="q_32" onchange="updateText_q_32()">
+                    <option value="null">Enter Value</option>    
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </p>
+
             <div id = "yes">
                 <p><b>Asnwer choosen in previous question - Yes</b></p>
                 <p>2.1. Name one way that the goverment should invest to inprove public light transportation? <input type="text" maxlength="200" name="q_321"></p>
             </div>                        
            
-            <p>3. How do you think the cost of public transportation compares to the cost of owning and maintaining a personal light transportation vehicle? <input type="text" maxlength="200" name="q_33"></p>
+            <p>3. How do you think the cost of public transportation compares to the cost of owning and maintaining a personal light transportation vehicle?
+                <select name="q_33" id="q_33">
+                    <option value="null">Enter Value</option>    
+                    <option value="cheaper">public transportation much cheaper then personal vehicle</option>
+                    <option value="equal">public transportation is equal to personal vehicle</option>
+                    <option value="expensive">public transportation more expensive then personal vehicle</option>
+                </select>
+            </p>
             
-            <p>4. How safe do you feel using shared self-light transportation? <select name = "q_34" id="q_34">
-                <option value="null">Select</option>    
-                <option value="not_safe">Not Safe</option>
-                <option value="mid_safe">Adequately Safe</option>
-                <option value="very_safe">Very Safe</option>
-            </select></p>
+            <p>4. How safe do you feel using shared self-light transportation? 
+                <select name = "q_34" id="q_34">
+                    <option value="null">Select</option>    
+                    <option value="not_safe">Not Safe</option>
+                    <option value="mid_safe">Adequately Safe</option>
+                    <option value="very_safe">Very Safe</option>
+                </select>
+            </p>
 
-            <p><input type="submit"></p>
+            <p><input type="submit" onclick = "movingPage()"></p>
         </form>
         <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
         <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
         <script>
+                function movingPage(){
+                    window.location.href="index.php";
+                }
+
                 function updateText_q_32() {
                     var answer = document.getElementById("q_32").value;                   
                     if(answer == 'yes'){
