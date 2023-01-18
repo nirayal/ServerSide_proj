@@ -2,4 +2,9 @@
 2 - we need to decide if we want to move all "sign-up" & "login" pages into "index".
 3 - we need to make acss to the index file - need to look better.
 
-לסדר את השאלות ככה שיהיה אחיד או למטה או בצד ימין
+$_SESSION
+login
+logout
+sign_up
+
+API
