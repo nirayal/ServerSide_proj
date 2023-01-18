@@ -195,11 +195,11 @@
             if(isset($error)){
                 echo ("poll has been added to the DB<br>");
                 echo("this is the object that has been added: ".$poll);                
+                $poll -> set_first_poll_final();
             }
             else
                 echo ($error);   
             
-            $poll -> set_first_poll_final();
         }
     }
 ?>
