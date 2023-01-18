@@ -129,7 +129,9 @@
 
             <p><input type="submit"></p>
         </form>
-
+        <p>To the Transportaion Poll part 3 : <button><a href="poll_third_page.php">Transportaion Poll Part 3</a></button></p>
+        <p>To the Transportaion Poll part 1 : <button><a href="poll_first_page.php">Transportaion Poll Part 1</a></button></p>
+        <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
         <script>
                 function updateText_q_23() {
                     var answer = document.getElementById("q_23").value;                   
