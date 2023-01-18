@@ -221,63 +221,61 @@
             <p>1. from witch city do you drive to the collage? <input type="text" maxlength="200" name="city"></p>
             <p>2. witch area of the city? <input type="text" maxlength="200" name="area"></p>
 
-            <div>
-                3. witch transport vehicle do you use (please select 2 vehicles)?<br>
-            </div>
-                
-            <p>choise: <select name="vehicle1" id="vehicle1" onchange="updateText1()">
-                <option value="null">Enter Value</option>    
-                <option value="car">Car</option>
-                <option value="bus">Bus</option>
-                <option value="bike">Bike</option>
-                <option value="e-bike">E-Bike</option>
-                <option value="foot">Foot</option>
-                <option value="motorcycle">Motorcycle</option>
-               </select>
+            
+            <p>3. witch transport vehicle do you use (please select 2 vehicles)?
+                <select name="vehicle1" id="vehicle1" onchange="updateText1()">
+                    <option value="null">Enter Value</option>    
+                    <option value="car">Car</option>
+                    <option value="bus">Bus</option>
+                    <option value="bike">Bike</option>
+                    <option value="e-bike">E-Bike</option>
+                    <option value="foot">Foot</option>
+                    <option value="motorcycle">Motorcycle</option>
+                </select>
             </p>
                 
             <div id = "car">
                 <p><b>vehicle choosen - car</b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_car1"></p>
-                <p>2. is the driven time is similar every time? <select name = "car2" id="car2">
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_car1"></p>
+                <p>5. is the driven time is similar every time? <select name = "car2" id="car2">
                     <option value="null">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                     </select></p>
-                <p>3. how much time do you spend on traffics? <input type="number" name="time_car3"></p>
+                <p>6. how much time do you spend on traffics? <input type="number" name="time_car3"></p>
             </div>            
             
             <div id = "bus">
                 <p><b>vehicle choosen - bus</b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bus1"></p>
-                <p>2. is the driven time is similar every time? <select name = "bus2" id="bus2">
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bus1"></p>
+                <p>5. is the driven time is similar every time? <select name = "bus2" id="bus2">
                     <option value="null">Select</option>    
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                     </select></p>
-                <p>3. how much time do you spend on traffics? <input type="number" name="time_bus3"></p>
+                <p>6. how much time do you spend on traffics? <input type="number" name="time_bus3"></p>
             </div>
 
             <div id = "motor">
                 <p><b>vehicle choosen - motorcycle</b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_motor1"></p>
-                <p>2. is the driven time is similar every time? <select name = "motor2" id="motor2">
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_motor1"></p>
+                <p>5. is the driven time is similar every time? <select name = "motor2" id="motor2">
                     <option value="null">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select></p>
-                <p>3. how much time do you spend on traffics? <input type="number" name="time_motor3"></p>
+                <p>6. how much time do you spend on traffics? <input type="number" name="time_motor3"></p>
             </div>
 
             <div id = "bike">
                 <p><b>vehicle choosen - bike </b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bike1"></p>
-                <p>2. do you ride only on bike paths? <select name = "bike2" id="bike2">
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_bike1"></p>
+                <p>5. do you ride only on bike paths? <select name = "bike2" id="bike2">
                     <option value="null">Select</option>  
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select></p>
-                <p>3. do you stand in red lights? <select name = "bike3" id="bike3">
+                <p>6. do you stand in red lights? <select name = "bike3" id="bike3">
                     <option value="null">Select</option>    
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
@@ -286,13 +284,13 @@
             
             <div id = "e-bike">
                 <p><b>vehicle choosen - e-bike</b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_ebike1"></p>
-                <p>2. do you ride only on bike paths? <select name = "ebike2" id="ebike2">
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_ebike1"></p>
+                <p>5. do you ride only on bike paths? <select name = "ebike2" id="ebike2">
                     <option value="null">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select></p>
-                <p>3. do you stand in red lights? <select name = "ebike3" id="ebike3">
+                <p>6. do you stand in red lights? <select name = "ebike3" id="ebike3">
                     <option value="null">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
@@ -301,14 +299,13 @@
             
             <div id = "foot">
                 <p><b>vehicle choosen - foot</b></p>
-                <p>1. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_foot1"></p>
-                <p>2. what is the distance to the collage from your home (in KM )? <input type="number" name="foot2"></p>
+                <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_foot1"></p>
+                <p>5. what is the distance to the collage from your home (in KM )? <input type="number" name="foot2"></p>
             </div>
 
-            <p><input type="submit"></p>
+            <p><a href ="poll_second_page.php"><input type="submit"></a></p>
         </form>
         <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
-        <p>Back : <button><a href="index.php">Back</a></button></p>
 
         <script>
                 function updateText1() {

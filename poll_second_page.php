@@ -78,7 +78,9 @@
 
             <h2>Transportation Poll - part 2/3</h2>
 
-            <p>1. How satisfied are you with the availability and reliability of public transportation in your area? <input type="text" maxlength="200" name="q_21"></p>
+            <p>1. How satisfied are you with the availability and reliability of public transportation in your area? 
+                <input type="range" min ="1" max ="5" name="q_21">
+            </p>
             
             <p>2. Have you noticed any improvements or declines in public transportation in your area in recent years? 
             <select name="q_22" id="q_22">
@@ -88,15 +90,13 @@
             </select>
             </p>
 
-            <div>
-                3. do you think the collage should invest in public transportation?
-            </div>
-                
-            <select name="q_23" id="q_23" onchange="updateText_q_23()">
-                <option value="null">Enter Value</option>    
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
+            <p>3. do you think the collage should invest in public transportation?           
+                <select name="q_23" id="q_23" onchange="updateText_q_23()">
+                    <option value="null">Enter Value</option>    
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </p>
                 
             <div id = "yes">
                 <p><b>Answer choosen in previous question - Yes</b></p>
@@ -104,7 +104,6 @@
             </div>            
             
             <p>4. How do you think the cost of public transportation compares to the cost of owning and maintaining a personal vehicle? <input type="text" maxlength="200" name="q_24"></p>
-            
             
             <p>5. How safe do you feel using public transportation?
             <select name="q_25" id="q_25">
