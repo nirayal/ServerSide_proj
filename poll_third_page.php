@@ -15,17 +15,8 @@
                 $error .= "Error:  Question 2.1 is required if you choose Yes in question 2.<br>";    }
         }
 
-        if ( ! $_GET['q_33']) {
-            $error .= "Error:  Question 3 is required.<br>";    }    
-        else {
-            $chars = str_split($_GET['q_33']);
-            foreach ($chars as $char){
-                if(! (ctype_alpha($char) || is_numeric($char) || $char == " ")){
-                    $error .= "Error:  City must contain only letters or numbers.<br>";
-                    break;
-                }
-            }           
-        }
+        if ($_GET['q_33'] == 'null') {
+            $error .= "Error:  Question 3 is required.<br>";    }
 
         if ($_GET['q_34'] == 'null') {
             $error .= "Error:  Question 4 is required.<br>";    }
