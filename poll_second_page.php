@@ -50,7 +50,9 @@
                 echo("this is the object that has been added: ".$second_poll);                
             }
             else 
-                echo $error;
+                echo $error_se
+
+            $poll -> set_second_poll_final();
         }
     }
 ?>

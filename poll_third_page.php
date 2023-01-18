@@ -43,6 +43,7 @@
             else
                 echo ($error);
             
+            $poll -> set_third_poll_final();
         }
     }
 ?>
