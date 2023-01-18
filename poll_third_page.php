@@ -16,7 +16,16 @@
         }
 
         if ( ! $_GET['q_33']) {
-            $error .= "Error:  Question 3 is required.<br>";    }
+            $error .= "Error:  Question 3 is required.<br>";    }    
+        else {
+            $chars = str_split($_GET['q_33']);
+            foreach ($chars as $char){
+                if(! (ctype_alpha($char) || is_numeric($char) || $char == " ")){
+                    $error .= "Error:  City must contain only letters or numbers.<br>";
+                    break;
+                }
+            }           
+        }
 
         if ($_GET['q_34'] == 'null') {
             $error .= "Error:  Question 4 is required.<br>";    }
@@ -93,7 +102,8 @@
 
             <p><input type="submit"></p>
         </form>
-
+        <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
+        <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
         <script>
                 function updateText_q_32() {
                     var answer = document.getElementById("q_32").value;                   

@@ -10,7 +10,7 @@
         else {
             $chars = str_split($_GET['city']);
             foreach ($chars as $char){
-                if(! ctype_alpha($char)){
+                if(! (ctype_alpha($char) || $char = " ")){
                     $error .= "Error:  City must contain only letters.<br>";
                     break;
                 }
@@ -22,7 +22,7 @@
         else {
             $chars = str_split($_GET['area']);
             foreach ($chars as $char){
-                if(! ctype_alpha($char)){
+                if(! (ctype_alpha($char) || $char = " ")){
                     $error .= "Error:  Area must contain only letters.<br>";
                     break;
                 }
@@ -309,6 +309,8 @@
 
             <p><input type="submit"></p>
         </form>
+        <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
+        <p>Back : <button><a href="index.php">Back</a></button></p>
 
         <script>
                 function updateText1() {

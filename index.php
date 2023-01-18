@@ -16,8 +16,8 @@
                 </div>
             </navbar>
         </header>
-        </navbar>
-        <p>To the Transportaion Poll : <button><a href="poll_firstpage.php">Transportaion Poll</a></button></p>
+
+        <p>To the Transportaion Poll : <button><a href="poll_first_page.php">Transportaion Poll</a></button></p>
         <p>To the poll statistics : <button><a href="#">Statistics</a></button></p>
         
         
@@ -115,6 +115,7 @@
             </form>
           </div>
 
+
         <script> // this is the script for the sign up
             // Get the modal
             // var modal_SU = document.getElementById('sign_up');
@@ -128,6 +129,7 @@
                 }
             }
             </script>
+            
     
     </body>
 </html>
