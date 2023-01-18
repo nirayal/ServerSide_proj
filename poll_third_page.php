@@ -36,10 +36,11 @@
             $third_poll->QUES_34 = $_GET['q_34'];
             
             $error = $third_poll->add_third_poll();
-            if(isset($error)){
-                echo ("poll has been added to the DB<br>");
-                echo("this is the object that has been added: ".$third_poll);    
-                $third_poll -> set_third_poll_final();            
+            if(!$error){
+                // echo ("poll has been added to the DB<br>");
+                // echo("this is the object that has been added: ".$third_poll);    
+                $third_poll -> set_third_poll_final();   
+                header('Location: index.php');         
             }
             else
                 echo ($error);
