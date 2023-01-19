@@ -44,10 +44,12 @@
             $second_poll->QUES_13 = $_GET['q_24'];
             $second_poll->QUES_13 = $_GET['q_25'];
 
-            $error = $poll->add_second_poll();
-            if(isset($error)){
-                echo ("poll has been added to the DB<br>");
-                echo("this is the object that has been added: ".$second_poll);                
+            $error = $second_poll->add_second_poll();
+            if(!$error){
+                // echo ("poll has been added to the DB<br>");
+                // echo("this is the object that has been added: ".$second_poll);                
+                $second_poll -> set_second_poll_final();
+                header('Location: poll_third_page.php');
             }
             else 
                 echo $error;
