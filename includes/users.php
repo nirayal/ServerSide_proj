@@ -102,8 +102,8 @@ class User
     {
         global $database;
         $error = null;
-
-        $sql = "insert into users(user_name,full_name,password,birth_day,phone,email) values ('".$this -> user_name.'","'.$this -> full_name.'","'.$this -> password.'","'.$this -> birth_day.'","'.$this -> phone.'","'.$this -> email."')";
+        // echo ($this->user_name . "<br>" . $this->full_name . "<br>" . $this->password . "<br>" . $this->phone . "<br>" . $this->email . "<br>" . $this->birth_day . "<br>");
+        $sql = "insert into users(user_name,full_name,password,phone,email,birth_day) values ('".$this -> user_name."','".$this -> full_name."','".$this -> password."','".$this -> phone."','".$this -> email."','".$this -> birth_day."')";
         $result = $database -> query($sql);
         if(!$result)
             $error = "coul'd not find user. Error is :". $database -> get_connection() -> error;
