@@ -192,10 +192,11 @@
             }
             
             $error = $poll->add_first_poll();
-            if(isset($error)){
-                echo ("poll has been added to the DB<br>");
-                echo("this is the object that has been added: ".$poll);                
+            if(!$error){
+                // echo ("poll has been added to the DB<br>");
+                // echo("this is the object that has been added: ".$poll);                
                 $poll -> set_first_poll_final();
+                header('Location: poll_second_page.php');
             }
             else
                 echo ($error);   
@@ -304,15 +305,11 @@
                 <p>5. what is the distance to the collage from your home (in KM )? <input type="number" name="foot2"></p>
             </div>
 
-            <p><input type="submit" onclick = "movingPage()"></a></p>
+            <p><input type="submit"></p>
         </form>
         <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
 
         <script>
-                function movingPage(){
-                    window.location.href="poll_second_page.php";
-                }
-
                 function updateText1() {
                     var answer = document.getElementById("vehicle1").value;                   
                     if(answer == 'car'){
