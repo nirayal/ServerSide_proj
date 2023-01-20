@@ -6,20 +6,18 @@ class User
     private $user_name;
     private $full_name;
     private $password;
-    private $city;
-    private $neighbourhood;
     private $phone;
     private $email;
+    private $birth_day;
 
     public function __construct()
     {
         $this->user_name = $_POST['user_name'];
         $this->full_name = $_POST['full_name'];
         $this->password = self::EncPass($_POST['user_name'],$_POST['password']);
-        $this->city = $_POST['city'];
-        $this->neighbourhood = $_POST['neighbourhood'];
         $this->phone = $_POST['phone'];
         $this->email = $_POST['email'];
+        $this->birth_day = $_POST['birth_day'];
     }
     public static function EncPass($user_name, $password)
     {
@@ -37,7 +35,7 @@ class User
         global $database;
         $error = null;
         
-        $result = $database->query("select * from users where user_name  = '". $user_name."' and password = '". $password."'");
+        $result = $database->query("select * from users where user_name  = '". $user_name."' and password = '". self::EncPass($password)."'");
         if(!$result)
             $error = "coul'd not find user. Error is :" . $database->get_connection()->error;
         elseif($result->num_rows = 0)
@@ -100,12 +98,12 @@ class User
         return $users;
     }
 
-    public function add_user($user_name, $full_name, $password, $city, $neighbourhood, $phone, $email)
+    public function add_user()
     {
         global $database;
         $error = null;
 
-        $sql = "insert into users(user_name,full_name,password,city,neighbourhood,phone,email) values ('".$this -> user_name.'","'.$this -> full_name.'","'.$this -> password.'","'.$this -> city.'","'.$this -> neighbourhood.'","'.$this -> phone.'","'.$this -> email."')";
+        $sql = "insert into users(user_name,full_name,password,birth_day,phone,email) values ('".$this -> user_name.'","'.$this -> full_name.'","'.$this -> password.'","'.$this -> birth_day.'","'.$this -> phone.'","'.$this -> email."')";
         $result = $database -> query($sql);
         if(!$result)
             $error = "coul'd not find user. Error is :". $database -> get_connection() -> error;
