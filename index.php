@@ -11,12 +11,12 @@
             <navbar>
                 <div class = "container-login-sign_up col-sm-1">
                     <button onclick="document.getElementById('log_in').style.display='block'" style="width:auto;" header>Login</button>
-                    <h1> PHP Project</h1>
                     <button onclick="document.getElementById('sign_up').style.display='block'" style="width:auto;">Sign Up</button>
+                    <h1> PHP Project</h1>
                 </div>
             </navbar>
         </header>
-
+        <div id = "info"></div>
         <p>To the Transportaion Poll : <button><a href="poll_first_page.php">Transportaion Poll</a></button></p>
         <p>To the poll statistics : <button><a href="#">Statistics</a></button></p>
         
@@ -54,7 +54,7 @@
         
                 <div class="clearfix">
                     <button type = "button" onclick = "document.getElementById('sign_up').style.display='none'" class = "cancelbtn">Cancel</button>
-                    <button type = "submit" class = "signupbtn buttonSignUP">Sign Up</button>
+                    <button id = "submit" type = "button" value = "login" class = "signupbtn buttonSignUP" onclick = "login()">Sign Up</button>
                 </div>
             </form>
         </div>
@@ -128,8 +128,19 @@
                     modal.style.display = "none";
                 }
             }
-            </script>
-            
-    
+
+            function login() {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange=function(){
+                    if(request.readyState == 4 && request.status == 200){
+                        document.getElementById("info").innerHTML = request.responseText;
+                    }
+                }
+                request.open("POST","login.php",true);
+                request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                request.send("user=" + document.getElementById("user_name").value + "&password=" + document.getElementById("password").value);
+            }
+        </script>                
+
     </body>
 </html>
