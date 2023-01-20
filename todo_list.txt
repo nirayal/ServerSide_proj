@@ -16,7 +16,7 @@ API
 we need to build JS that replace the sign up and log in button in logout button
 
 we need to build up the statistics 
-
+לאלא 
 AJAX:
 adding ajax in the log in section
 adding ajax in one other page. 

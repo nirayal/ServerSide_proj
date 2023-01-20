@@ -1,7 +1,7 @@
 <?php
 require_once("includes/init.php");
 $error = null;
-if(!$_POST)
+if($_POST)
 {
 // user name validation
     if(!$_POST['user_name'])
@@ -11,7 +11,7 @@ if(!$_POST)
         $chars = str_split($_POST['user_name']);
         foreach($chars as $char)  
         {
-            if(!ctype_alpha($char) || !is_numeric($char))
+            if(!ctype_alpha($char) && !is_numeric($char))
             {
                 $error .= "Error:  User Name must contain only letters and numbers.<br>";
                 break;
@@ -38,11 +38,11 @@ if(!$_POST)
         if(strlen($_POST['password']) < 8)
             $error .= "Error:  Password must be at east 8 chars for sign-up.<br>";
         if(!preg_match("#[0-9]+#",$_POST['password']))
-            $error .= "Error: Password Must Contain At Least 1 Digit";
+            $error .= "Error: Password Must Contain At Least 1 Digit.<br>";
         if(!preg_match("#[A-Z]+#",$_POST['password']))
-            $error = "Password Must Contain At Least 1 Capital Letter!";
+            $error = "Password Must Contain At Least 1 Capital Letter!.<br>";
         if(!preg_match("#[a-z]+#",$_POST['password']))
-            $error = "Password Must Contain At Least 1 Lowercase Letter!";
+            $error = "Password Must Contain At Least 1 Lower Letter!.<br>";
     }
     if(!$_POST['password-repeat'])
         $error .= "Error:  Password Repeat is required for sign-up.<br>";
@@ -54,12 +54,12 @@ if(!$_POST)
     // phone number validation
     if (!$_POST['phone']) 
         $error .= "Error:  phone number is required.<br>";
-    elseif (! preg_match('/^[0-9]{10}+$/', $_GET['phone']))
+    elseif (! preg_match('/^[0-9]{10}+$/', $_POST['phone']))
         $error .= "Error:  Only get digits in phone number.<br>";
     // email validation
     if (!$_POST['email'])
         $error .= "Error:  e-mail is required.<br>";
-    elseif (! filter_var($_GET['email'],FILTER_VALIDATE_EMAIL))
+    elseif (! filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
         $error .= "Error:  Only get valid E-Mail.<br>";
     // birth-day validation
     if(!$_POST['birth_day'])
