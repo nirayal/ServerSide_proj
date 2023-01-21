@@ -5,18 +5,15 @@
 $_SESSION
 login
 logout
-sign_up
 
 API
 
 לסדר תיקיות ולשים את כל הCSS ביחד
 לסדר את הקישורים בתוך הדפים שיעבדו
 
-לבדוק מה קורה ב sign_up
 we need to build JS that replace the sign up and log in button in logout button
 
-we need to build up the statistics 
-לאלא 
+we need to build up the statistics  
 AJAX:
 adding ajax in the log in section
 adding ajax in one other page. 

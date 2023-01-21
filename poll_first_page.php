@@ -302,12 +302,13 @@
             <div id = "foot">
                 <p><b>vehicle choosen - foot</b></p>
                 <p>4. what is the avarge time that you spends on the way to the collage? <input type="number" name="time_foot1"></p>
-                <p>5. what is the distance to the collage from your home (in KM )? <input type="number" name="foot2"></p>
+                <p>5. what is the distance to the collage from your home (in KM)? <input type="number" name="foot2"></p>
             </div>
 
             <p><input type="submit"></p>
         </form>
         <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
+        <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
 
         <script>
                 function updateText1() {
