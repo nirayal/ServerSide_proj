@@ -20,7 +20,7 @@
                 // header('Location: index.php');
             }
             else
-                echo ("username or password are not correct.");
+                echo ("username or password are incorrect.");
         }
         echo $info;
     }
