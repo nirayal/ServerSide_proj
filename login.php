@@ -22,5 +22,6 @@
             else
                 echo ("username or password are not correct.");
         }
+        echo $info;
     }
 ?>
