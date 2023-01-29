@@ -33,10 +33,7 @@ if($_GET["poll_finish"] == "Done"){
             <h2>This is the main page of the poll</h2>
             <p>you can see your answers at all time</p>
             <p>the poll caontain 3 section. in the end of every one of them you can stop and continue all time</p>
-        </header>
-        <div id = "info"></div>
-        
-        
+        </header>      
 
 
         <p>To the Transportaion Poll : <button><a href="poll_first_page.php">Transportaion Poll</a></button></p>

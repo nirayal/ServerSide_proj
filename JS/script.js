@@ -41,11 +41,25 @@ window.onclick = function(event) {
 function sign_up() {
     var request = new XMLHttpRequest();
     request.onreadystatechange=function(){
-        if(request.readyState == 4 && request.status == 200){
-            document.getElementById("info").innerHTML = request.responseText;
+        if(request.readyState == 4 && request.status == 200)
+        {
+            var myReturn = JSON.parse(this.responseText)
+            if(myReturn.code == 0)
+                document.getElementById("info").innerHTML=myReturn.message;
+            else
+                document.getElementById("info").innerHTML=myReturn.message + "<br>" + document.getElementById("user_name");
         }
     }
     request.open("POST","login.php",true);
     request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    request.send("user=" + document.getElementById("user_name").value + "&password=" + document.getElementById("password").value);
+    var data = JSON.stringify(
+        {
+            "user_name":document.getElementById("user_name").value,
+            "full_name":document.getElementById("full_name").value,
+            "password":document.getElementById("password").value,
+            "email":document.getElementById("email").value,
+            "phone_num":document.getElementById("phone_num").value,
+            "birth_day":document.getElementById("birth_day").value
+        })
+    request.send(data);
 }

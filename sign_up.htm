@@ -3,6 +3,7 @@
     <head>
         <title>Project - user sign-up</title>
         <link rel="stylesheet" href="CSS/login_sign_up.css">
+        <script src="JS/script.js"></script>
     </head>
 <body>
     
@@ -12,7 +13,7 @@
             <p>Please fill in this form to create an User.</p>
             
             <hr>
-            <!-- user name sing up -->
+            <!-- user name sign up -->
             <label for = "user_name"><b>User Name</b></label>
             <input type = "text" placeholder = "Enter User Name" name = "user_name" required>
             <!-- full name sign up -->
@@ -34,11 +35,13 @@
 
             <label for = "birth_day"><b>Birth Day</b></label>
             <input type = "date" placeholder = "enter birth day" name = "birth_day" required>
+            <div id = "info"></div>
             <hr>
             <div class="clearfix">
                 <button type = "button" class = "cancelbtn">Cancel</button>
-                <!-- <button id = "submit" type = "button" value = "sign_up" class = "signupbtn buttonSignUP" onclick = "phpErrorFunc()">Sign Up</button> -->
-                <button type = "submit" class = "signupbtn buttonSignUP">Sign Up</button>
+                <button id = "submit" type = "button" value = "sign_up" class = "signupbtn buttonSignUP" onclick = "sign_up()">Sign Up</button>
+                
+                <!-- <button type = "submit" class = "signupbtn buttonSignUP">Sign Up</button> -->
             </div>
         </div>
     </form>
