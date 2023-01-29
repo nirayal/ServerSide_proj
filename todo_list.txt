@@ -6,6 +6,8 @@ $_SESSION
 login
 logout
 
+AJAX - אורן
+סיפריית ויזואליזציה - אורן - canvasJS
 API
 
 לסדר תיקיות ולשים את כל הCSS ביחד

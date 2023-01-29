@@ -2,6 +2,12 @@
     require_once("includes\init.php");
     require_once("Second_poll.php");
     require_once("questions_define.php");
+    include("navbar.htm");
+
+    if (!$session->signed_in){
+        header('Location: login.php');
+        exit;
+    }
 
     $error = null;
     if ($_GET){
@@ -63,7 +69,7 @@
         <title>
             Transportaion poll
         </title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="CSS/style.css">
     </head>
     <body onload ="updateText_q_23()">
         <form>

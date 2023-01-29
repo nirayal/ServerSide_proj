@@ -7,3 +7,6 @@ a ,button{text-decoration: none; color: black;}
 #bike{display: none;}
 #e-bike{display: none;}
 #foot{display: none;}
+
+#sign_up_btn, #log_in_btn, #log_out_btn{width: auto;}
+#log_out_btn{/*display: none;*/}
