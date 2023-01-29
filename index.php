@@ -12,13 +12,14 @@ if (!$session -> signed_in){
 }
 
 $user_name = $_SESSION['user_name'];
-echo "<p>Hey there, ". $user_name .". You are logged in</p>";
+echo "<p>Hey there ". $user_name ."! You are logged in</p><hr>";
 
-if($_GET["poll_finish"] == "Done"){
-    $first_poll->set_first_poll_final();
-    $second_poll->set_second_poll_final();
-    $third_poll->set_third_poll_final();
-}
+if($_GET)
+    if($_GET["poll_finish"] == "Done"){
+        $first_poll->set_first_poll_final();
+        $second_poll->set_second_poll_final();
+        $third_poll->set_third_poll_final();
+    }
 
 ?>
 
