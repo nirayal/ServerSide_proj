@@ -162,8 +162,8 @@
             echo $error;
         }
         else{   
-            $poll = new First_Poll("lioriloior"); //meanwhile this
-            // $poll->user_name = $_SESSION['user_name']; for the time that we gonna have login succsesfully
+            $poll = new First_Poll();
+            $poll->user_name = $_SESSION['user_name'];
             $poll->QUES_11 = $_GET['city'];
             $poll->QUES_12 = $_GET['area'];
             $poll->QUES_13 = $_GET['vehicle1'];

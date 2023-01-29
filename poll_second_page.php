@@ -40,8 +40,8 @@
             echo $error;
         }
         else{   
-            $second_poll = new Second_poll("lioriloior"); //meanwhile this
-            // $poll->user_name = $_SESSION['user_name']; for the time that we gonna have login succsesfully
+            $second_poll = new Second_poll();
+            $poll->user_name = $_SESSION['user_name'];
             $second_poll->QUES_11 = $_GET['q_21'];
             $second_poll->QUES_12 = $_GET['q_22'];
             $second_poll->QUES_13 = $_GET['q_23'];

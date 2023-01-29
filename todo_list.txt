@@ -2,8 +2,6 @@
 2 - we need to decide if we want to move all "sign-up" & "login" pages into "index".
 3 - we need to make acss to the index file - need to look better.
 
-$_SESSION
-login
 logout
 
 AJAX - אורן

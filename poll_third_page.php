@@ -31,8 +31,8 @@
             echo $error;
         }
         else{
-            $third_poll = new Third_Poll("lioriloior"); //meanwhile this
-            // $poll->user_name = $_SESSION['user_name']; for the time that we gonna have login succsesfully
+            $third_poll = new Third_Poll();
+            $poll->user_name = $_SESSION['user_name'];
             $third_poll->QUES_31 = $_GET['q_31'];
             $third_poll->QUES_32 = $_GET['q_32'];
             if($_GET['q_32'] == 'yes'){
