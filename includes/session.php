@@ -38,8 +38,8 @@
         {
             if($user)
             {
-                $this -> user_id = $user -> id;
-                $_SESSION['user_id'] = $user -> id;
+                $this -> user_id = $user -> user_name;
+                $_SESSION['user_id'] = $user -> user_name;
                 $this -> signed_in = true;
             }
         }
@@ -51,4 +51,5 @@
             $this -> signed_in = false; 
         }
     }
+    $session = new Session();
 ?>

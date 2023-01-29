@@ -10,14 +10,14 @@ class User
     private $email;
     private $birth_day;
 
-    public function __construct()
+    public function __construct($user_name = null, $full_name = null, $password = null, $phone = null, $email = null, $birth_day = null)
     {
-        $this->user_name = $_POST['user_name'];
-        $this->full_name = $_POST['full_name'];
-        $this->password = self::EncPass($_POST['user_name'],$_POST['password']);
-        $this->phone = $_POST['phone'];
-        $this->email = $_POST['email'];
-        $this->birth_day = $_POST['birth_day'];
+        $this->user_name = $user_name;
+        $this->full_name = $full_name;
+        $this->password = self::EncPass($user_name,$password);
+        $this->phone = $phone;
+        $this->email = $email;
+        $this->birth_day = $birth_day;
     }
     public static function EncPass($user_name, $password)
     {
@@ -35,10 +35,10 @@ class User
         global $database;
         $error = null;
         
-        $result = $database->query("select * from users where user_name  = '". $user_name."' and password = '". self::EncPass($password)."'");
+        $result = $database->query("select * from users where user_name  = '". $user_name."' and password = '". self::EncPass($user_name,$password)."'");
         if(!$result)
             $error = "coul'd not find user. Error is :" . $database->get_connection()->error;
-        elseif($result->num_rows = 0)
+        elseif($result->num_rows > 0)
         {
             $found_user = $result->fetch_assoc();
             $this->instantation($found_user);

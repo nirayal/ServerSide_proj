@@ -66,7 +66,7 @@ if ($_POST) {
     // print_r($_POST);
 
     if (!$error) {
-        $user = new User();
+        $user = new User($_POST);
         $error = $user->add_user();
         if (!$error)
             // echo ("user has been added to the DATABASE");

@@ -1,3 +1,4 @@
+html, body{height:100%;}
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
@@ -37,6 +38,11 @@ button:hover {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
+}
+
+.nodesign{
+  color: black;
+  text-decoration-line : none;
 }
 
 /* Float cancel and signup buttons and add an equal width */
