@@ -159,6 +159,5 @@ class First_Poll
         }
         return $user_progress * 100;
     }  
-
-
 }
+$first_poll = new First_Poll();

@@ -65,9 +65,9 @@
     </head>
     <body onload="updateText_q_32()">
         <form>
-            <h1>Transportation Poll</h1>
+            <h2>Transportation Poll</h2>
 
-            <h2>Transportation Poll - part 3/3</h2>
+            <h3>Transportation Poll - part 3/3</h3>
 
             <p>1. Would you use a share light transportation such as e-scooter or e-bike? 
                 <select name = "q_31" id="q_31">

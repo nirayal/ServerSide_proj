@@ -222,9 +222,9 @@
     <body>
         <form>
 
-            <h1>Transportation Poll</h1>
+            <h2>Transportation Poll</h2>
 
-            <h2>Transportation Poll - part 1/3</h2>
+            <h3>Transportation Poll - part 1/3</h3>
 
             <p>1. from witch city do you drive to the collage? <input type="text" maxlength="200" name="city"></p>
             <p>2. witch area of the city? <input type="text" maxlength="200" name="area"></p>

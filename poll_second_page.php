@@ -73,9 +73,9 @@
     </head>
     <body onload ="updateText_q_23()">
         <form>
-            <h1>Transportation Poll</h1>
+            <h2>Transportation Poll</h2>
 
-            <h2>Transportation Poll - part 2/3</h2>
+            <h3>Transportation Poll - part 2/3</h3>
 
             <p>1. How satisfied are you with the availability and reliability of public transportation in your area? 
                 <input type="range" min ="1" max ="5" name="q_21">

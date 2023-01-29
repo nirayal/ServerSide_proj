@@ -128,6 +128,5 @@ class Third_Poll
         
         return $user_progress * 100;
     }  
-
-
 }
+$third_poll = new Third_Poll();

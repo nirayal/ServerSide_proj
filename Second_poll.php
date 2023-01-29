@@ -133,6 +133,5 @@ class Second_Poll
             $user_progress += (1/5);
         return $user_progress * 100;
     }  
-
-
 }
+$second_poll = new Second_Poll();
