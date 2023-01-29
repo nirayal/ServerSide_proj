@@ -10,8 +10,8 @@ if (!$session -> signed_in){
     header('Location: login.php');
     exit;
 }
+
 $user_name = $_SESSION['user_name'];
-// echo $user_name;
 echo "<p>Hey there, ". $user_name .". You are logged in</p>";
 
 if($_GET["poll_finish"] == "Done"){
