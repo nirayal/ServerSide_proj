@@ -15,27 +15,30 @@
             <hr>
             <!-- user name sign up -->
             <label for = "user_name"><b>User Name</b></label>
-            <input type = "text" placeholder = "Enter User Name" name = "user_name" required>
+            <input type = "text" placeholder = "Enter User Name" name = "user_name" id="user_name" required>
+            <p id="username_error"></p>
             <!-- full name sign up -->
             <label for = "full_name"><b>Full Name</b></label>
-            <input type = "text" placeholder = "Enter Full Name" name = "full_name" required>
+            <input type = "text" placeholder = "Enter Full Name" name = "full_name" id="full_name" required>
+            <p id="fullname_error"></p>
             <!-- password and re password sign up -->
             <label for = "password"><b>Password</b></label>
-            <input type = "password" placeholder = "Enter Password" name = "password" required>
-
+            <input type = "password" placeholder = "Enter Password" name = "password" id="password" required>
+            <p id="password_error"></p>
             <label for = "password-repeat"><b>Repeat Password</b></label>
-            <input type = "password" placeholder = "Repeat Password" name = "password-repeat" required>
+            <input type = "password" placeholder = "Repeat Password" name = "password-repeat" id="password-repeat" required>
+            <p id="password-repeat_error"></p>
             <!-- email sign up -->
             <label for = "email"><b>Email</b></label>
-            <input type = "text" placeholder = "Enter Email" name = "email" required>
-            
+            <input type = "text" placeholder = "Enter Email" name = "email" id="email" required>
+            <p id="email_error"></p>
             <label for = "phone"><b>Phone Number</b></label>
-            <input type = "tel" placeholder = "Enter Phone Number" name = "phone" required>
+            <input type = "tel" placeholder = "Enter Phone Number" name = "phone_num" id="phone_num" required>            
+            <p id="phone_error"></p>
             <!-- birth-day sign up -->
-
             <label for = "birth_day"><b>Birth Day</b></label>
-            <input type = "date" placeholder = "enter birth day" name = "birth_day" required>
-            <div id = "info"></div>
+            <input type = "date" placeholder = "enter birth day" name = "birth_day" id="birth_day" required>
+            <p id="birthday_error"></p>
             <hr>
             <div class="clearfix">
                 <button type = "button" class = "cancelbtn">Cancel</button>
@@ -43,6 +46,7 @@
                 
                 <!-- <button type = "submit" class = "signupbtn buttonSignUP">Sign Up</button> -->
             </div>
+            <div id="success-response"></div>
         </div>
     </form>
 </body>

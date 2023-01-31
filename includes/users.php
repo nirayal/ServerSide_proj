@@ -10,15 +10,15 @@ class User
     private $email;
     private $birth_day;
 
-    public function __construct($user_name = null, $full_name = null, $password = null, $phone = null, $email = null, $birth_day = null)
-    {
-        $this->user_name = $user_name;
-        $this->full_name = $full_name;
-        $this->password = self::EncPass($user_name,$password);
-        $this->phone = $phone;
-        $this->email = $email;
-        $this->birth_day = $birth_day;
-    }
+    // public function __construct($user_name = null, $full_name = null, $password = null, $phone = null, $email = null, $birth_day = null)
+    // {
+    //     $this->user_name = $user_name;
+    //     $this->full_name = $full_name;
+    //     $this->password = self::EncPass($user_name,$password);
+    //     $this->phone = $phone;
+    //     $this->email = $email;
+    //     $this->birth_day = $birth_day;
+    // }
     public static function EncPass($user_name, $password)
     {
         return md5(md5($user_name).$password);
@@ -98,12 +98,12 @@ class User
         return $users;
     }
 
-    public function add_user()
+    public static function  add_user($user_name, $full_name, $password, $phone, $email, $birth_day)
     {
         global $database;
         $error = null;
-        // echo ($this->user_name . "<br>" . $this->full_name . "<br>" . $this->password . "<br>" . $this->phone . "<br>" . $this->email . "<br>" . $this->birth_day . "<br>");
-        $sql = "insert into users(user_name,full_name,password,phone,email,birth_day) values ('".$this -> user_name."','".$this -> full_name."','".$this -> password."','".$this -> phone."','".$this -> email."','".$this -> birth_day."')";
+        $password = self::EncPass($user_name,$password);
+        $sql = "insert into users(user_name,full_name,password,phone,email,birth_day) values ('".$user_name."','".$full_name."','".$password."','".$phone."','".$email."','".$birth_day."')";
         $result = $database -> query($sql);
         if(!$result)
             $error = "coul'd not find user. Error is :". $database -> get_connection() -> error;
