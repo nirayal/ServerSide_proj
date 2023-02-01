@@ -59,7 +59,7 @@ class First_Poll
         $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
      
-        $sql = "update first_poll set poll_status = '" . $this->poll_status . "'";
+        $sql = "update first_poll set poll_status = '" . $this->poll_status . " where user_name = '" . $_SESSION['user_name'] . "'";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -103,7 +103,7 @@ class First_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into first_poll(poll_number, user_name, poll_status, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
+        $sql = "insert into first_poll(user_name, poll_status, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -115,7 +115,7 @@ class First_Poll
         global $database;
         $error = null;
 
-        $sql = "update first_poll set poll_status = '" . $this->poll_status . "', QUES_11 = '" . $this->QUES_11 . "', QUES_12 = '" . $this->QUES_12 . "', QUES_13 = '" . $this->QUES_13 . "', QUES_131 = '" . $this->QUES_131 . "', QUES_132 = '" . $this->QUES_132 . "', QUES_133 = '" . $this->QUES_133 . "', QUES_134 = '" . $this->QUES_134 . "', QUES_135 = '" . $this->QUES_135 . "', QUES_136 = '" . $this->QUES_136 . "', QUES_137 = '" . $this->QUES_137 . "', QUES_138 = '" . $this->QUES_138 . "' where poll_number = '" . $this->poll_number . "'";
+        $sql = "update first_poll set poll_status = '" . $this->poll_status . "', QUES_11 = '" . $this->QUES_11 . "', QUES_12 = '" . $this->QUES_12 . "', QUES_13 = '" . $this->QUES_13 . "', QUES_131 = '" . $this->QUES_131 . "', QUES_132 = '" . $this->QUES_132 . "', QUES_133 = '" . $this->QUES_133 . "', QUES_134 = '" . $this->QUES_134 . "', QUES_135 = '" . $this->QUES_135 . "', QUES_136 = '" . $this->QUES_136 . "', QUES_137 = '" . $this->QUES_137 . "', QUES_138 = '" . $this->QUES_138 . "' where user_name = '" . $this->user_name . "'";
         // echo $sql;
         $result = $database -> query($sql);
 

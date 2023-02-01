@@ -1,24 +1,14 @@
-1 - we need to take care of the navbar in "index"
-2 - we need to decide if we want to move all "sign-up" & "login" pages into "index".
-3 - we need to make acss to the index file - need to look better.
-
-logout
-
-AJAX - אורן
 סיפריית ויזואליזציה - אורן - canvasJS
 API
 
 לסדר תיקיות ולשים את כל הCSS ביחד
 לסדר את הקישורים בתוך הדפים שיעבדו
 
-we need to build JS that replace the sign up and log in button in logout button
 
 we need to build up the statistics  
 AJAX:
-adding ajax in the log in section
 adding ajax in one other page. 
 
 
 orgenaize files in folders.
 
-mooving data using session
