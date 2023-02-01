@@ -157,7 +157,7 @@ class First_Poll
             if($this -> QUES_137 != null && $this -> QUES_138 != null)
                 $user_progress += (1/6);
         }
-        return $user_progress * 100;
+        return $user_progress;
     }  
 }
 $first_poll = new First_Poll();

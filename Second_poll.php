@@ -118,7 +118,7 @@ class Second_Poll
         return $error;
     }
     // this function will return if the user answered all the poll.
-    public function first_poll_full_status()
+    public function second_poll_full_status()
     {
         $user_progress = 0;
         if($this -> QUES_21 != null)
@@ -131,7 +131,7 @@ class Second_Poll
             $user_progress += (1/5);
         if($this -> QUES_25 != null)
             $user_progress += (1/5);
-        return $user_progress * 100;
+        return $user_progress;
     }  
 }
 $second_poll = new Second_Poll();

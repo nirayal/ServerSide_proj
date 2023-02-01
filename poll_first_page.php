@@ -230,7 +230,7 @@
             <p>2. witch area of the city? <input type="text" maxlength="200" name="area"></p>
 
             
-            <p>3. witch transport vehicle do you use (please select 2 vehicles)?
+            <p>3. witch transport vehicle do you use?
                 <select name="vehicle1" id="vehicle1" onchange="updateText1()">
                     <option value="null">Enter Value</option>    
                     <option value="car">Car</option>

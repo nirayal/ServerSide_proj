@@ -125,8 +125,8 @@ class Third_Poll
             $user_progress += (1/4);
         if($this -> QUES_34 != null)
             $user_progress += (1/4);
-        
-        return $user_progress * 100;
+
+        return $user_progress;
     }  
 }
 $third_poll = new Third_Poll();
