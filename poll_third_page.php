@@ -118,10 +118,10 @@
                 </select>
             </p>
 
-            <p><input type="submit" onclick = "movingPage()"></p>
+            <p><input type="submit" calss = "submit" onclick = "movingPage()"></p>
         </form>
-        <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
-        <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
+        <p>To the Transportaion Poll part 2 : <button class = "mooving_poll" ><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
+        <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
         <script>
                 function movingPage(){
                     window.location.href="index.php";

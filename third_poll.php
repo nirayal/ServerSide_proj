@@ -4,10 +4,8 @@ require_once("includes\init.php");
 
 class Third_Poll
 {
-    private $poll_number;
     private $user_name;
     private $poll_status; 
-    static $poll_counter = 3001;
     private $QUES_31;
     private $QUES_32;
     private $QUES_321;
@@ -21,8 +19,6 @@ class Third_Poll
 
     public function __construct()
     {
-        $this -> poll_number = self :: $poll_counter;
-        self :: $poll_counter ++;
         $this -> poll_status = "non-final";
         $this -> user_name = $_SESSION['user_name'];
         $this -> QUES_31 = null;
@@ -43,7 +39,7 @@ class Third_Poll
     public function __set($property, $value)
     {
         if (property_exists($this, $property)) 
-            $this->$property = $value;
+            $this -> $property = $value;
     }
 
     public function set_third_poll_final()
@@ -51,10 +47,10 @@ class Third_Poll
         global $database;
         $error = null;
 
-        $this->find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
-        $this->poll_status = "final";
+        $this -> ind_third_poll_by_attribute('user_name', $_SESSION['user_name']);
+        $this -> poll_status = "final";
      
-        $sql = "update third_poll set poll_status = '" . $this->poll_status . "'";
+        $sql = "update third_poll set poll_status = '" . $this->poll_status . "' where user_name = '". $this -> user_name."'";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -98,7 +94,7 @@ class Third_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into third_poll(poll_number, user_name, poll_status, QUES_31, QUES_32, QUES_321, QUES_33, QUES_34) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_31."','".$this -> QUES_32."','".$this -> QUES_321."','".$this -> QUES_33."','".$this -> QUES_34."')";
+        $sql = "insert into third_poll(user_name, poll_status, QUES_31, QUES_32, QUES_321, QUES_33, QUES_34) values ('".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_31."','".$this -> QUES_32."','".$this -> QUES_321."','".$this -> QUES_33."','".$this -> QUES_34."')";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -110,7 +106,7 @@ class Third_Poll
         global $database;
         $error = null;
 
-        $sql = "update third_poll set poll_status = '" . $this->poll_status . "', QUES_31 = '" . $this->QUES_31 . "', QUES_32 = '" . $this->QUES_32 . "', QUES_321 = '" . $this->QUES_321 . "', QUES_33 = '" . $this->QUES_33 . "', QUES_34 = '" . $this->QUES_34 . "' where poll_number = '" . $this->poll_number . "'";
+        $sql = "update third_poll set poll_status = '" . $this->poll_status . "', QUES_31 = '" . $this->QUES_31 . "', QUES_32 = '" . $this->QUES_32 . "', QUES_321 = '" . $this->QUES_321 . "', QUES_33 = '" . $this->QUES_33 . "', QUES_34 = '" . $this->QUES_34 . "' where user_name = '" . $this -> user_name . "'";
         // echo $sql;
         $result = $database -> query($sql);
 

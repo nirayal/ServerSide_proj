@@ -4,10 +4,8 @@ require_once("includes\init.php");
 
 class Second_Poll
 {
-    private $poll_number;
     private $user_name;
     private $poll_status; 
-    static $poll_counter = 2001;
     private $QUES_21;
     private $QUES_22;
     private $QUES_23;
@@ -21,10 +19,8 @@ class Second_Poll
         return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
     }
 
-    public function __construct($user_name = null)
+    public function __construct()
     {
-        $this -> poll_number = self :: $poll_counter;
-        self :: $poll_counter ++;
         $this -> poll_status = "non-final";
         $this -> user_name = $_SESSION['user_name'];
         $this -> QUES_21 = null;
@@ -57,7 +53,7 @@ class Second_Poll
         $this->find_second_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
      
-        $sql = "update second_poll set poll_status = '" . $this->poll_status . "'";
+        $sql = "update second_poll set poll_status = '" . $this->poll_status . "' where user_name ='". $_SESSION['user_name']."'";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -101,7 +97,7 @@ class Second_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into second_poll(poll_number, user_name, poll_status, QUES_21, QUES_22, QUES_23, QUES_231, QUES_24, QUES_25) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_21."','".$this -> QUES_22."','".$this -> QUES_23."','".$this -> QUES_231."','".$this -> QUES_24."','".$this -> QUES_25."')";
+        $sql = "insert into second_poll(user_name, poll_status, QUES_21, QUES_22, QUES_23, QUES_231, QUES_24, QUES_25) values ('".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_21."','".$this -> QUES_22."','".$this -> QUES_23."','".$this -> QUES_231."','".$this -> QUES_24."','".$this -> QUES_25."')";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -113,7 +109,7 @@ class Second_Poll
         global $database;
         $error = null;
 
-        $sql = "update second_poll set poll_status = '" . $this->poll_status . "', QUES_21 = '" . $this->QUES_21 . "', QUES_22 = '" . $this->QUES_22 . "', QUES_23 = '" . $this->QUES_23 . "', QUES_231 = '" . $this->QUES_231 . "', QUES_24 = '" . $this->QUES_24 . "', QUES_25 = '" . $this->QUES_25 . "' where poll_number = '" . $this->poll_number . "'";
+        $sql = "update second_poll set poll_status = '" . $this->poll_status . "', QUES_21 = '" . $this->QUES_21 . "', QUES_22 = '" . $this->QUES_22 . "', QUES_23 = '" . $this->QUES_23 . "', QUES_231 = '" . $this->QUES_231 . "', QUES_24 = '" . $this->QUES_24 . "', QUES_25 = '" . $this->QUES_25 . "' where user_name = '" . $this-> user_name . "'";
         // echo $sql;
         $result = $database -> query($sql);
 

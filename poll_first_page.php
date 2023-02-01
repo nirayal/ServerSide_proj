@@ -352,10 +352,10 @@
                 <p>5. what is the distance to the collage from your home (in KM)? <input type="number" name="foot2"></p>
             </div>
 
-            <p><input type="submit"></p>
+            <p><input type="submit" class = "submit"></p>
         </form>
-        <p>To the Transportaion Poll part 2 : <button><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
-        <p>Back To Main: <button><a href="index.php">Back To Main</a></button></p>
+        <p>To the Transportaion Poll part 2 : <button class = "mooving_poll"><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
+        <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
 
         <script>
                 function updateText1() {
