@@ -31,21 +31,31 @@
             echo $error;
         }
         else{
-            $third_poll = new Third_Poll();
-            $poll->user_name = $_SESSION['user_name'];
+            $flagNewOBJ = false;
+            if($third_poll->find_third_poll_by_attribute("user_name",$_SESSION["user_name"]) != null){ //null means that i have a poll and done insatntaion
+                $third_poll = new Third_Poll();
+                $flagNewOBJ = true;
+            }
+            $third_poll->user_name = $_SESSION['user_name'];
             $third_poll->QUES_31 = $_GET['q_31'];
             $third_poll->QUES_32 = $_GET['q_32'];
-            if($_GET['q_32'] == 'yes'){
-                $third_poll->QUES_321 = $_GET['321'];
-            }
+            if($_GET['q_32'] == 'yes')
+                $third_poll->QUES_321 = $_GET['q_321'];
+            else
+                $third_poll->QUES_321 = "null";
             $third_poll->QUES_33 = $_GET['q_33'];
             $third_poll->QUES_34 = $_GET['q_34'];
             
-            $error = $third_poll->add_third_poll();
+            if($flagNewOBJ)
+                $error = $third_poll->add_third_poll();
+            else
+                $error = $third_poll->update_third_poll();
+                
             if(!$error){
                 // echo ("poll has been added to the DB<br>");
                 // echo("this is the object that has been added: ".$third_poll);    
-                $third_poll -> set_third_poll_final();   
+                // $third_poll -> set_third_poll_final();   
+             
                 header('Location: index.php');         
             }
             else

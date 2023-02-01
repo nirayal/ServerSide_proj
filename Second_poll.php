@@ -26,8 +26,7 @@ class Second_Poll
         $this -> poll_number = self :: $poll_counter;
         self :: $poll_counter ++;
         $this -> poll_status = "non-final";
-        // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
-        $this -> user_name = $user_name; // meanwhile we gonna do that
+        $this -> user_name = $_SESSION['user_name'];
         $this -> QUES_21 = null;
         $this -> QUES_22 = null;
         $this -> QUES_23 = null;
@@ -52,8 +51,18 @@ class Second_Poll
 
     public function set_second_poll_final()
     {
+        global $database;
+        $error = null;
 
+        $this->find_second_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
+     
+        $sql = "update second_poll set poll_status = '" . $this->poll_status . "'";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
     }
     private function instantation($poll_array)
     {
@@ -92,7 +101,20 @@ class Second_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into second_poll(poll_number, poll_status, user_name, QUES_21, QUES_22, QUES_23, QUES_231, QUES_24, QUES_25) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_21."','".$this -> QUES_22."','".$this -> QUES_23."','".$this -> QUES_231."','".$this -> QUES_24."','".$this -> QUES_25."')";
+        $sql = "insert into second_poll(poll_number, user_name, poll_status, QUES_21, QUES_22, QUES_23, QUES_231, QUES_24, QUES_25) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_21."','".$this -> QUES_22."','".$this -> QUES_23."','".$this -> QUES_231."','".$this -> QUES_24."','".$this -> QUES_25."')";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
+    }
+    public function update_second_poll()
+    {
+        global $database;
+        $error = null;
+
+        $sql = "update second_poll set poll_status = '" . $this->poll_status . "', QUES_21 = '" . $this->QUES_21 . "', QUES_22 = '" . $this->QUES_22 . "', QUES_23 = '" . $this->QUES_23 . "', QUES_231 = '" . $this->QUES_231 . "', QUES_24 = '" . $this->QUES_24 . "', QUES_25 = '" . $this->QUES_25 . "' where poll_number = '" . $this->poll_number . "'";
+        // echo $sql;
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -120,6 +142,7 @@ class Second_Poll
     // this function will return if the user answered all the poll.
     public function second_poll_full_status()
     {
+        $this->find_second_poll_by_attribute('user_name', $_SESSION['user_name']);
         $user_progress = 0;
         if($this -> QUES_21 != null)
             $user_progress += (1/5);

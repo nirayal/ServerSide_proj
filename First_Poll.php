@@ -4,10 +4,8 @@ require_once("includes\init.php");
 
 class First_Poll
 {
-    private $poll_number;
     private $user_name;
     private $poll_status; 
-    static $poll_counter = 1001;
     private $QUES_11;
     private $QUES_12;
     private $QUES_13;
@@ -21,17 +19,11 @@ class First_Poll
     private $QUES_138;
 
     public function First_Poll()    {}
-    function __toString(){ //for test to print the object
-        return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
-    }
 
-    public function __construct($user_name = null)
+    public function __construct()
     {
-        $this -> poll_number = self :: $poll_counter;
-        self :: $poll_counter ++;
         $this -> poll_status = "non-final";
-        // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
-        $this -> user_name = $user_name; // meanwhile we gonna do that
+        $this -> user_name = $_SESSION['user_name'];
         $this -> QUES_11 = null;
         $this -> QUES_12 = null;
         $this -> QUES_13 = null;
@@ -61,7 +53,18 @@ class First_Poll
 
     public function set_first_poll_final()
     {
+        global $database;
+        $error = null;
+
+        $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
+     
+        $sql = "update first_poll set poll_status = '" . $this->poll_status . "'";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
     }
     private function instantation($poll_array)
     {
@@ -100,7 +103,20 @@ class First_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into first_poll(poll_number, poll_status, user_name, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
+        $sql = "insert into first_poll(poll_number, user_name, poll_status, QUES_11, QUES_12, QUES_13, QUES_131, QUES_132, QUES_133, QUES_134, QUES_135, QUES_136, QUES_137, QUES_138) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_11."','".$this -> QUES_12."','".$this -> QUES_13."','".$this -> QUES_131."','".$this -> QUES_132."','".$this -> QUES_133."','".$this -> QUES_134."','".$this -> QUES_135."','".$this -> QUES_136."','".$this -> QUES_137."','".$this -> QUES_138."')";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
+    }
+        public function update_first_poll()
+    {
+        global $database;
+        $error = null;
+
+        $sql = "update first_poll set poll_status = '" . $this->poll_status . "', QUES_11 = '" . $this->QUES_11 . "', QUES_12 = '" . $this->QUES_12 . "', QUES_13 = '" . $this->QUES_13 . "', QUES_131 = '" . $this->QUES_131 . "', QUES_132 = '" . $this->QUES_132 . "', QUES_133 = '" . $this->QUES_133 . "', QUES_134 = '" . $this->QUES_134 . "', QUES_135 = '" . $this->QUES_135 . "', QUES_136 = '" . $this->QUES_136 . "', QUES_137 = '" . $this->QUES_137 . "', QUES_138 = '" . $this->QUES_138 . "' where poll_number = '" . $this->poll_number . "'";
+        // echo $sql;
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -128,6 +144,7 @@ class First_Poll
     // this function will return if the user answered all the poll.
     public function first_poll_full_status()
     {
+        $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
         $user_progress = 0;
         if($this -> QUES_11 != null)
             $user_progress += (1/6);
@@ -160,4 +177,4 @@ class First_Poll
         return $user_progress;
     }  
 }
-$first_poll = new First_Poll();
+$poll = new First_Poll();

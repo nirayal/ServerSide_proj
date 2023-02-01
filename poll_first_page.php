@@ -162,7 +162,11 @@
             echo $error;
         }
         else{   
-            $poll = new First_Poll();
+            $flagNewOBJ = false;
+            if($poll->find_first_poll_by_attribute("user_name",$_SESSION["user_name"]) != null){ //null means that i have a poll and done insatntaion
+                $poll = new First_Poll();
+                $flagNewOBJ = true;
+            }
             $poll->user_name = $_SESSION['user_name'];
             $poll->QUES_11 = $_GET['city'];
             $poll->QUES_12 = $_GET['area'];
@@ -172,32 +176,69 @@
                 $poll->QUES_132 = $_GET['car2'];
                 $poll->QUES_133 = $_GET['time_car3'];
             }
+            else{
+                $poll->QUES_131 = "null";
+                $poll->QUES_132 = "null";
+                $poll->QUES_133 = "null";
+            }
+
             if($_GET['vehicle1'] == 'bus'){
                 $poll->QUES_131 = $_GET['time_bus1'];
                 $poll->QUES_132 = $_GET['bus2'];
                 $poll->QUES_133 = $_GET['time_bus3'];
             }
+            else{
+                $poll->QUES_131 = "null";
+                $poll->QUES_132 = "null";
+                $poll->QUES_133 = "null";
+            }
+
             if($_GET['vehicle1'] == 'motor'){
                 $poll->QUES_131 = $_GET['time_motor1'];
                 $poll->QUES_132 = $_GET['motor2'];
                 $poll->QUES_133 = $_GET['time_motor3'];
             }
+            else{
+                $poll->QUES_131 = "null";
+                $poll->QUES_132 = "null";
+                $poll->QUES_133 = "null";
+            }
+            
             if($_GET['vehicle1'] == 'bike'){
                 $poll->QUES_134 = $_GET['time_bike1'];
                 $poll->QUES_135 = $_GET['bike2'];
                 $poll->QUES_136 = $_GET['bike3'];
             }
+            else{
+                $poll->QUES_134 = "null";
+                $poll->QUES_135 = "null";
+                $poll->QUES_136 = "null";
+            }
+
             if($_GET['vehicle1'] == 'ebike'){
                 $poll->QUES_134 = $_GET['time_ebike1'];
                 $poll->QUES_135 = $_GET['ebike2'];
                 $poll->QUES_136 = $_GET['ebike3'];
             }
+            else{
+                $poll->QUES_134 = "null";
+                $poll->QUES_135 = "null";
+                $poll->QUES_136 = "null";
+            }
+
             if($_GET['vehicle1'] == 'foot'){
                 $poll->QUES_137 = $_GET['time_toof1'];
                 $poll->QUES_138 = $_GET['foot2'];
             }
-            
-            $error = $poll->add_first_poll();
+            else{
+                $poll->QUES_137 = "null";
+                $poll->QUES_138 = "null";
+            }
+          
+            if($flagNewOBJ)
+                $error = $poll->add_first_poll();
+            else
+                $error = $poll->update_first_poll();
             if(!$error){
                 // echo ("poll has been added to the DB<br>");
                 // echo("this is the object that has been added: ".$poll);                

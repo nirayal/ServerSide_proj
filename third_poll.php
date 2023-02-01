@@ -19,13 +19,12 @@ class Third_Poll
         return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
     }
 
-    public function __construct($user_name = null)
+    public function __construct()
     {
         $this -> poll_number = self :: $poll_counter;
         self :: $poll_counter ++;
         $this -> poll_status = "non-final";
-        // $this -> user_name = $_SESSION['user_id']; for the advenced timr that we gonna have loggedin user
-        $this -> user_name = $user_name; // meanwhile we gonna do that
+        $this -> user_name = $_SESSION['user_name'];
         $this -> QUES_31 = null;
         $this -> QUES_32 = null;
         $this -> QUES_321 = null;
@@ -49,7 +48,18 @@ class Third_Poll
 
     public function set_third_poll_final()
     {
+        global $database;
+        $error = null;
+
+        $this->find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
+     
+        $sql = "update third_poll set poll_status = '" . $this->poll_status . "'";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
     }
     private function instantation($poll_array)
     {
@@ -88,7 +98,20 @@ class Third_Poll
         global $database;
         $error = null;
 
-        $sql = "insert into third_poll(poll_number, poll_status, user_name, QUES_31, QUES_32, QUES_321, QUES_33, QUES_34) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_31."','".$this -> QUES_32."','".$this -> QUES_321."','".$this -> QUES_33."','".$this -> QUES_34."')";
+        $sql = "insert into third_poll(poll_number, user_name, poll_status, QUES_31, QUES_32, QUES_321, QUES_33, QUES_34) values ('".$this -> poll_number."','".$this -> user_name."','".$this -> poll_status."','".$this -> QUES_31."','".$this -> QUES_32."','".$this -> QUES_321."','".$this -> QUES_33."','".$this -> QUES_34."')";
+        $result = $database -> query($sql);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        return $error;
+    }
+    public function update_third_poll()
+    {
+        global $database;
+        $error = null;
+
+        $sql = "update third_poll set poll_status = '" . $this->poll_status . "', QUES_31 = '" . $this->QUES_31 . "', QUES_32 = '" . $this->QUES_32 . "', QUES_321 = '" . $this->QUES_321 . "', QUES_33 = '" . $this->QUES_33 . "', QUES_34 = '" . $this->QUES_34 . "' where poll_number = '" . $this->poll_number . "'";
+        // echo $sql;
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -116,6 +139,7 @@ class Third_Poll
     // this function will return if the user answered all the poll.
     public function third_poll_full_status()
     {
+        $this->find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
         $user_progress = 0;
         if($this -> QUES_31 != null)
             $user_progress += (1/4);

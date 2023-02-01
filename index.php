@@ -12,11 +12,11 @@ if (!$session -> signed_in){
 }
 
 $user_name = $_SESSION['user_name'];
-echo "<p>Hey there ". $user_name ."! You are logged in</p><hr>";
+echo "<p>Hey there <b>". $user_name ."</b>! You are logged in</p><hr>";
 
 if($_GET)
-    if($_GET["poll_finish"] == "Done"){
-        $first_poll->set_first_poll_final();
+    if($_GET["poll_finish"] == "Done"){        
+        $poll->set_first_poll_final();
         $second_poll->set_second_poll_final();
         $third_poll->set_third_poll_final();
     }
@@ -33,18 +33,18 @@ if($_GET)
         <header>
             <h2>This is the main page of the poll</h2>
             <p>you can see your answers at all time</p>
-            <p>the poll contain 3 section. in the end of every one of them you can stop and continue all time</p>
-            <p> until now you have done - 
+            <p>the poll contain 3 sections. in the end of every one of them you can stop and continue all time</p>
+            <p> until now you have done: 
                 <?php
-                $precentageOfProcess = $first_poll->first_poll_full_status() + $second_poll->second_poll_full_status() + $third_poll->third_poll_full_status();
+                $precentageOfProcess = $poll->first_poll_full_status() + $second_poll->second_poll_full_status() + $third_poll->third_poll_full_status();
                 if ($precentageOfProcess == 3)
-                    echo "100%";
+                    echo "<b>100%</b>";
                 elseif ($precentageOfProcess == 2)
-                    echo "66.6%";
+                    echo "<b>66.6%</b>";
                 elseif ($precentageOfProcess == 1)
-                    echo "33.3%";
+                    echo "<b>33.3%</b>";
                 else
-                    echo "0%";
+                    echo "<b>0%</b>";
                 ?>
             of the poll.</p>
         </header>      
