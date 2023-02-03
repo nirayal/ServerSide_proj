@@ -59,7 +59,7 @@ if ($_POST) {
                 <button type = "button" class = "cancelbtn">Cancel</button>
                 <button type = "submit" class = "signupbtn buttonSignUP">Login</button>
             </div>
-            <p>Don't have an account? press <a href="sign_up.htm" class = "nodesign"><b>here</b></a> to make one.</p>
+            <p>Don't have an account? <a href="sign_up.htm" class = "nodesign"><b>press here to register</b></a>.</p>
 
         </div>
     </form>

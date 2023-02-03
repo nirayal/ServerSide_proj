@@ -72,6 +72,7 @@
 
         </title>
         <link rel="stylesheet" href="CSS/style.css">
+        <script src="JS/poll.js"></script>
     </head>
     <body onload="updateText_q_32()">
         <form>
@@ -122,20 +123,6 @@
         </form>
         <p>To the Transportaion Poll part 2 : <button class = "mooving_poll" ><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
         <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
-        <script>
-                function movingPage(){
-                    window.location.href="index.php";
-                }
 
-                function updateText_q_32() {
-                    var answer = document.getElementById("q_32").value;                   
-                    if(answer == 'yes'){
-                        document.getElementById("yes").style.display = 'block';
-                    }
-                    else{
-                        document.getElementById("yes").style.display = 'none';
-                    }
-                }
-            </script>
     </body>
 </html>

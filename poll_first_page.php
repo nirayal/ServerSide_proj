@@ -194,13 +194,13 @@
                 $poll->QUES_133 = "null";
             }
 
-            if ($_GET['vehicle1'] == 'ebike' || $_GET['vehicle1'] == 'bike') {
+            if ($_GET['vehicle1'] == 'e-bike' || $_GET['vehicle1'] == 'bike') {
                 if ($_GET['vehicle1'] == 'bike') {
                     $poll->QUES_134 = $_GET['time_bike1'];
                     $poll->QUES_135 = $_GET['bike2'];
                     $poll->QUES_136 = $_GET['bike3'];
                 }
-                if ($_GET['vehicle1'] == 'ebike') {
+                if ($_GET['vehicle1'] == 'e-bike') {
                     $poll->QUES_134 = $_GET['time_ebike1'];
                     $poll->QUES_135 = $_GET['ebike2'];
                     $poll->QUES_136 = $_GET['ebike3'];
@@ -245,6 +245,7 @@
             Transportaion poll
         </title>
         <link rel="stylesheet" href="CSS/style.css">
+        <script src="JS/poll.js"></script>
     </head>
     <body>
         <form>
@@ -342,41 +343,6 @@
         </form>
         <p>To the Transportaion Poll part 2 : <button class = "mooving_poll"><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
         <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
-
-        <script>
-                function updateText1() {
-                    var answer = document.getElementById("vehicle1").value;                   
-                    if(answer == 'car'){
-                        document.getElementById("car").style.display = 'block';
-                    }else{
-                        document.getElementById("car").style.display = 'none';
-                    }
-                    if(answer == 'bus'){
-                        document.getElementById("bus").style.display = 'block';
-                    }else{
-                        document.getElementById("bus").style.display = 'none';
-                    }
-                    if(answer == 'motorcycle'){
-                        document.getElementById("motor").style.display = 'block';
-                    }else{
-                        document.getElementById("motor").style.display = 'none';
-                    }
-                    if(answer == 'bike'){
-                        document.getElementById("bike").style.display = 'block';
-                    }else{
-                        document.getElementById("bike").style.display = 'none';
-                    }
-                    if(answer == 'e-bike'){
-                        document.getElementById("e-bike").style.display = 'block';
-                    }else{
-                        document.getElementById("e-bike").style.display = 'none';
-                    }
-                    if(answer == 'foot'){
-                        document.getElementById("foot").style.display = 'block';
-                    }else{
-                        document.getElementById("foot").style.display = 'none';
-                    }
-                }
-            </script>
+        
     </body>
 </html>

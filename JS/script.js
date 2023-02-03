@@ -26,6 +26,7 @@ function sign_up() {
                 }
             else
                 document.getElementById("success-response").innerHTML = response['success']['response'];
+                window.alert(response['success']['response']);
         }
     }
     request.open("POST","sign_up.php",true);

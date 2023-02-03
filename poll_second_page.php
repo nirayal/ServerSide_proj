@@ -46,15 +46,15 @@
                 $flagNewOBJ = true;
             }            
             $second_poll->user_name = $_SESSION['user_name'];
-            $second_poll->QUES_11 = $_GET['q_21'];
-            $second_poll->QUES_12 = $_GET['q_22'];
-            $second_poll->QUES_13 = $_GET['q_23'];
+            $second_poll->QUES_21 = $_GET['q_21'];
+            $second_poll->QUES_22 = $_GET['q_22'];
+            $second_poll->QUES_23 = $_GET['q_23'];
             if($_GET['q_23'] == 'yes')
-                $second_poll->QUES_12 = $_GET['q_231'];
+                $second_poll->QUES_231 = $_GET['q_231'];
             else
-                $second_poll->QUES_12 = 'null';
-            $second_poll->QUES_13 = $_GET['q_24'];
-            $second_poll->QUES_13 = $_GET['q_25'];
+                $second_poll->QUES_231 = 'null';
+            $second_poll->QUES_24 = $_GET['q_24'];
+            $second_poll->QUES_25 = $_GET['q_25'];
 
             if($flagNewOBJ)
                 $error = $second_poll->add_second_poll();
@@ -79,6 +79,7 @@
             Transportaion poll
         </title>
         <link rel="stylesheet" href="CSS/style.css">
+        <script src="JS/poll.js"></script>
     </head>
     <body onload ="updateText_q_23()">
         <form>
@@ -127,15 +128,6 @@
         <p>To the Transportaion Poll part 3 : <button class = "mooving_poll"><a href="poll_third_page.php">Transportaion Poll Part 3</a></button></p>
         <p>To the Transportaion Poll part 1 : <button class = "mooving_poll"><a href="poll_first_page.php">Transportaion Poll Part 1</a></button></p>
         <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
-        <script>
-                function updateText_q_23() {
-                    var answer = document.getElementById("q_23").value;                   
-                    if(answer == 'yes'){
-                        document.getElementById("yes").style.display = 'block';
-                    }else{
-                        document.getElementById("yes").style.display = 'none';
-                    }
-                }
-        </script>
+
     </body>
 </html>
