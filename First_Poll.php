@@ -98,6 +98,7 @@ class First_Poll
         }
         return $polls;
     }
+
     public function add_first_poll()
     {
         global $database;

@@ -33,7 +33,6 @@ else {
 // password validation
 if (!$urlarray['password'])
     $error_data["response"]["error_password"] = "Error: Password is required for sign-up.";
-
 else {
     if (strlen($urlarray['password']) < 8)
         $error_data["response"]["error_password"] = "Error: Password must be at least 8 chars for sign-up.";    
