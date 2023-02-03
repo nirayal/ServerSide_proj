@@ -17,14 +17,14 @@
 
     $first_polls_arr = $poll -> fetch_first_polls();
     $second_polls_arr = $second_poll -> fetch_second_polls();
-    $third_poll_arr = $third_poll -> fetch_third_polls();
+    $third_polls_arr = $third_poll -> fetch_third_polls();
 
     $public_trans_not_safe = 0;
     $light_trans_not_safe = 0;
-    $arrive_duration_by_city;
+    $arrive_duration_by_city = null;
     foreach($first_polls_arr as $first_poll_ans){
-        foreach($first_polls_arr -> $QUES_11 as $city){
-            if($first_poll_ans -> $QUES_11 == $city){}
+        foreach($first_polls_arr -> QUES_11 as $city){
+            if($first_poll_ans -> QUES_11 == $city){}
                 $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
             
         }
@@ -32,12 +32,12 @@
     }
 
     foreach($second_polls_arr as $second_poll_ans){
-        if($second_poll_ans -> $QUES_25 == 'not_safe')
+        if($second_poll_ans -> QUES_25 == 'not_safe')
             $public_trans_not_safe += 1;
     }
 
     foreach($third_polls_arr as $third_poll_ans){
-        if($third_poll_ans -> $QUES_34 == 'not_safe')
+        if($third_poll_ans -> QUES_34 == 'not_safe')
             $light_trans_not_safe += 1;
     }
 
@@ -47,28 +47,28 @@
 
 
 
-    $public_trans_not_safe = "select count(*) from second_poll where QUES_25 = 'not_safe'";
-    $public_trans_mid_safe = "select * from second_poll where QUES_25 = 'mid_safe'";
-    $public_trans_very_safe = "select * from second_poll where QUES_25 = 'very_safe'";
-    $light_trans_not_safe = "select count(*) from third_poll where QUES_34 = 'not_safe'";
-    $light_trans_mid_safe = "select * from third_poll where QUES_34 = 'mid_safe'";
-    $light_trans_very_safe = "select * from third_poll where QUES_34 = 'very_safe'";
+    // $public_trans_not_safe = "select count(*) from second_poll where QUES_25 = 'not_safe'";
+    // $public_trans_mid_safe = "select * from second_poll where QUES_25 = 'mid_safe'";
+    // $public_trans_very_safe = "select * from second_poll where QUES_25 = 'very_safe'";
+    // $light_trans_not_safe = "select count(*) from third_poll where QUES_34 = 'not_safe'";
+    // $light_trans_mid_safe = "select * from third_poll where QUES_34 = 'mid_safe'";
+    // $light_trans_very_safe = "select * from third_poll where QUES_34 = 'very_safe'";
 
-    global $database;
-    $error = null;
+    // global $database;
+    // $error = null;
 
-    $sql = "select * from first_poll where ".$attribute." = '".$value."'";
-    $result = $database -> query($sql);
-    if(!$result)
-        $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
-    elseif($result -> num_rows >0)
-    {
-        $found_pull = $result ->fetch_assoc();
-        $this -> instantation($found_pull);
-    }
-    else
-        $error = "Can't find poll by this value";
-    return $error;
+    // $sql = "select * from first_poll where ".$attribute." = '".$value."'";
+    // $result = $database -> query($sql);
+    // if(!$result)
+    //     $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+    // elseif($result -> num_rows >0)
+    // {
+    //     $found_pull = $result ->fetch_assoc();
+    //     $this -> instantation($found_pull);
+    // }
+    // else
+    //     $error = "Can't find poll by this value";
+    // return $error;
 
 
 ?>
