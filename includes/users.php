@@ -114,6 +114,10 @@ class User
     {
         global $database;
         $error = null;
-        $sql = "";
+        $sql = "select user_name from users where user_name ='" . $user_name . "'";
+        $result = $database -> query($sql);
+        if ($result)
+            return true;
+        return false;
     }
 }
