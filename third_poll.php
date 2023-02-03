@@ -47,7 +47,7 @@ class Third_Poll
         global $database;
         $error = null;
 
-        $this -> ind_third_poll_by_attribute('user_name', $_SESSION['user_name']);
+        $this -> find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this -> poll_status = "final";
      
         $sql = "update third_poll set poll_status = '" . $this->poll_status . "' where user_name = '". $this -> user_name."'";
@@ -81,7 +81,7 @@ class Third_Poll
             if($result -> num_rows > 0)
                 while($row = $result -> fetch_assoc())
                 {
-                    $poll = new First_Poll();
+                    $poll = new Third_Poll();
                     $poll -> instantation($row);
                     $polls [$i] = $poll;
                     $i += 1;

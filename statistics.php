@@ -1,9 +1,10 @@
 <?php
     require_once("includes\init.php");
     require_once("questions_define.php");
-    require_once("poll_first_page.php");
-    require_once("poll_second_page.php");
-    require_once("poll_third_page.php");
+    require_once("First_Poll.php");
+    require_once("second_poll.php");
+    require_once("third_poll.php");
+    
 
     if (!$session->signed_in){
         header('Location: login.php');
@@ -20,12 +21,14 @@
 
     $public_trans_not_safe = 0;
     $light_trans_not_safe = 0;
-    $ariive_duration_by_city
+    $arrive_duration_by_city;
     foreach($first_polls_arr as $first_poll_ans){
         foreach($first_polls_arr -> $QUES_11 as $city){
-            if($first_poll_ans -> $QUES_11 == $city)
-                $ariive_duration_by_city [$city] += $first_poll_ans -> (int) $QUES_134;
+            if($first_poll_ans -> $QUES_11 == $city){}
+                $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
+            
         }
+        print_r($arrive_duration_by_city);
     }
 
     foreach($second_polls_arr as $second_poll_ans){

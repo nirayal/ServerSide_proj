@@ -51,7 +51,7 @@ if($_GET)
 
 
         <p>To the Transportaion Poll : <button><a href="poll_first_page.php">Transportaion Poll</a></button></p>
-        <p>To the Poll Statistics : <button><a href="#">Statistics</a></button></p>
+        <p>To the Poll Statistics : <button><a href="statistics.php">Statistics</a></button></p>
         
         <br><hr><br>
         

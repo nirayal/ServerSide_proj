@@ -8,7 +8,7 @@ $error_data = array("code" => 0, 'response' => array());
 $success_data = array();
 
 
-//eneter here chech if there is a user name in DB -  add it to JASON error if does
+//enter here chech if there is a user name in DB -  add it to JASON error if does
 
 if(!$urlarray['user_name']){
     $error_data["response"]["error_username"] = "Error: User Name is required for sign-up.";
