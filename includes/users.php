@@ -98,7 +98,7 @@ class User
         return $users;
     }
 
-    public static function  add_user($user_name, $full_name, $password, $phone, $email, $birth_day)
+    public static function add_user($user_name, $full_name, $password, $phone, $email, $birth_day)
     {
         global $database;
         $error = null;
@@ -108,5 +108,12 @@ class User
         if(!$result)
             $error = "coul'd not find user. Error is :". $database -> get_connection() -> error;
         return $error;
+    }
+
+    public static function usernameExist($user_name)
+    {
+        global $database;
+        $error = null;
+        $sql = "";
     }
 }

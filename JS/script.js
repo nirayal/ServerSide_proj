@@ -6,27 +6,72 @@ function sign_up() {
             console.log(request);
             var response = JSON.parse(this.responseText);
             console.log(response['error']['response']);
-            if(Object.keys(response["error"]["response"]).length > 0)
+            if(Object.keys(response["error"]["response"]).length > 0){
                 error = response["error"]["response"];
                 if("error_username" in error){
+                    document.getElementById("username_error").style.display = 'block';
                     document.getElementById("username_error").innerHTML = error["error_username"];
-                if("error_fullname" in error)
+                }
+                else
+                    document.getElementById("username_error").style.display = 'none';
+                
+                if("error_fullname" in error){
+                    document.getElementById("fullname_error").style.display = 'block';
                     document.getElementById("fullname_error").innerHTML = error["error_fullname"];
-                if("error_password" in error)
+                }
+                else
+                    document.getElementById("fullname_error").style.display = 'none';
+
+                if("error_password" in error){
+                    document.getElementById("password_error").style.display = 'block';
                     document.getElementById("password_error").innerHTML = error["error_password"];
-                if("error_password_reapet" in error)
+                }
+                else
+                    document.getElementById("password_error").style.display = 'none';
+                
+                if("error_password_reapet" in error){
+                    document.getElementById("password-repeat_error").style.display = 'block';
                     document.getElementById("password-repeat_error").innerHTML = error["error_password_reapet"];
-                if("error_email" in error)
+                }
+                else
+                    document.getElementById("password-repeat_error").style.display = 'none';
+                    
+                if("error_email" in error){
+                    document.getElementById("email_error").style.display = 'block';
                     document.getElementById("email_error").innerHTML = error["error_email"];
-                if("error_phone" in error)
+                }
+                else
+                    document.getElementById("email_error").style.display = 'none';
+
+                if("error_phone" in error){
+                    document.getElementById("phone_error").style.display = 'block';
                     document.getElementById("phone_error").innerHTML = error["error_phone"];
-                if("error_birth_day" in error)
+                }
+                else
+                    document.getElementById("phone_error").style.display = 'none';
+        
+                if("error_birth_day" in error){
+                    document.getElementById("birthday_error").style.display = 'block';
                     document.getElementById("birthday_error").innerHTML = error["error_birth_day"];
+                }
+                else
+                    document.getElementById("birthday_error").style.display = 'none';
                 console.log("error");
                 }
-            else
+            else{
+                document.getElementById("birthday_error").style.display = 'none';
+                document.getElementById("phone_error").style.display = 'none';
+                document.getElementById("email_error").style.display = 'none';
+                document.getElementById("password-repeat_error").style.display = 'none';
+                document.getElementById("password_error").style.display = 'none';
+                document.getElementById("username_error").style.display = 'none';
+                document.getElementById("fullname_error").style.display = 'none';
                 document.getElementById("success-response").innerHTML = response['success']['response'];
-                window.alert(response['success']['response']);
+                window.prompt("nir");
+                window.location.href="login.php";
+            }
+
+                
         }
     }
     request.open("POST","sign_up.php",true);
