@@ -28,10 +28,10 @@ a ,button{text-decoration: none; color: black;}
     background-color: rgb(185, 185, 185);
 }
 
-<!-- HTML !-->
+/* <!-- HTML !-->
 <button class="button-12" role="button">Button 12</button>
 
-/* CSS */
+CSS
 .button-12 {
   display: flex;
   flex-direction: column;
@@ -52,4 +52,4 @@ a ,button{text-decoration: none; color: black;}
 .button-12:focus {
   box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
-}
+} */
