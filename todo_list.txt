@@ -12,3 +12,4 @@ adding ajax in one other page.
 
 orgenaize files in folders.
 
+לאפשר צפייה בטופס בכל עת
