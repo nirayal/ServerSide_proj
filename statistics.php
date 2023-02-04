@@ -11,6 +11,12 @@
         exit;
     }
 
+    $urlContents = file_get_contents("php://input");
+    $urlarray = json_decode($urlContents, true);
+
+    $error_data = array("code" => 0, 'response' => array());
+    $success_data = array();
+
     global $database;
     $error = null;
     // graph 1 section

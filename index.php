@@ -32,9 +32,9 @@ if($_GET)
     <body>
         <header>
             <h2>This is the main page of the poll</h2>
-            <p>you can see your answers at all time</p>
-            <p>the poll contain 3 sections. in the end of every one of them you can stop and continue all time</p>
-            <p> until now you have done: 
+            <p>you can follow "My Poll" in order to check your answers</p>
+            <p>the poll contain 3 sections. in the end of every section you can stop and continue at all time.</p><br>
+            <p> Your Progress Is : 
                 <?php
                 $precentageOfProcess = $poll->first_poll_full_status() + $second_poll->second_poll_full_status() + $third_poll->third_poll_full_status();
                 if ($precentageOfProcess == 3)
@@ -50,8 +50,10 @@ if($_GET)
         </header>      
 
 
-        <p>To the Transportaion Poll : <button><a href="poll_first_page.php">Transportaion Poll</a></button></p>
-        <p>To the Poll Statistics : <button><a href="statistics.php">Statistics</a></button></p>
+        <table>
+            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a href="poll_first_page.php">Transportaion Poll</a></button>  </td>
+            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a href="statistics.php">Statistics</a></button>  </td>
+        </table>
         
         <br><hr><br>
         
