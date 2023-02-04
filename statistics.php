@@ -12,40 +12,98 @@
     }
 
     $urlContents = file_get_contents("php://input");
-    $urlarray = json_decode($urlContents, true);
 
-    $error_data = array("code" => 0, 'response' => array());
-    $success_data = array();
+    $first_graph_data = array("code" => 1, 'response' => array());
+    $second_graph_data = array("code" => 2, 'response' => array());
+    $third_graph_data = array("code" => 3, 'response' => array());
+    $fourth_graph_data = array("code" => 4, 'response' => array());
 
     global $database;
-    $error = null;
+    
     // graph 1 section
-
-    $first_polls_arr = $poll -> fetch_first_polls();
-    $second_polls_arr = $second_poll -> fetch_second_polls();
-    $third_polls_arr = $third_poll -> fetch_third_polls();
-
     $public_trans_not_safe = 0;
     $light_trans_not_safe = 0;
-    $arrive_duration_by_city = null;
-    foreach($first_polls_arr as $first_poll_ans){
-        foreach($first_polls_arr -> QUES_11 as $city){
-            if($first_poll_ans -> QUES_11 == $city){}
-                $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
+
+    $public_trans_mid_safe = 0;
+    $light_trans_mid_safe = 0;
+
+    $public_trans_very_safe = 0;
+    $light_trans_very_safe = 0;
+    
+    $result = $database -> query('select count(*) from second_poll where QUES_25 = "not_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_25_not_safe'] = 0;
+    else
+        $first_graph_data['response']['graph1_ques_25_not_safe'] = mysqli_fetch_row($result);
+    
+    $result = $database -> query('select * from second_poll where QUES_25 = "mid_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_25_mid_safe'] = 0;
+    else
+        $first_graph_data['response']['graph1_ques_25_mid_safe'] = mysqli_fetch_row($result);
+    
+    $result = $database -> query('select * from second_poll where QUES_25 = "very_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_25_very_safe'] = 0;
+    else
+        $first_graph_data['response']['graph1_ques_25_very_safe'] = mysqli_fetch_row($result);
+
+    $result = $database -> query('select count(*) from third_poll where QUES_34 = "not_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_34_not_safe'] = 0;
+    else
+        $first_graph_data['response']['graph1_ques_34_not_safe'] = mysqli_fetch_row($result);
+
+    $result = $database -> query('select * from third_poll where QUES_34 = "mid_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_34_mid_safe'] = 0;
+    else
+        $first_graph_data['response']['graph1_ques_34_mid_safe'] = mysqli_fetch_row($result);
+    
+    $result = $database -> query('select * from third_poll where QUES_34 = "very_safe"');
+    if ($result->num_rows == 0)
+        $first_graph_data['response']['graph1_ques_34_very_safe'] = 0;
+    else
+       $first_graph_data['response']['graph1_ques_34_very_safe'] = mysqli_fetch_row($result);
+
+    // graph 2 section
+
+
+    $response_data = array("graph_1" => $first_graph_data, "graph_2" => $second_graph_data, "graph_3" => $third_graph_data, "graph_4" => $fourth_graph_data);
+    $response_data = json_encode($response_data);
+    echo $response_data;
+
+
+
+
+
+
+
+
+    // $first_polls_arr = $poll -> fetch_first_polls();
+    // $second_polls_arr = $second_poll -> fetch_second_polls();
+    // $third_polls_arr = $third_poll -> fetch_third_polls();
+
+    
+    // $arrive_duration_by_city = null;
+    // foreach($first_polls_arr as $first_poll_ans){
+    //     foreach($first_polls_arr -> QUES_11 as $city){
+    //         if($first_poll_ans -> QUES_11 == $city){}
+    //             $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
             
-        }
-        print_r($arrive_duration_by_city);
-    }
+    //     }
+    //     print_r($arrive_duration_by_city);
+    // }
 
-    foreach($second_polls_arr as $second_poll_ans){
-        if($second_poll_ans -> QUES_25 == 'not_safe')
-            $public_trans_not_safe += 1;
-    }
+    // foreach($second_polls_arr as $second_poll_ans){
+    //     if($second_poll_ans -> QUES_25 == 'not_safe')
+    //         $public_trans_not_safe += 1;
+    // }
 
-    foreach($third_polls_arr as $third_poll_ans){
-        if($third_poll_ans -> QUES_34 == 'not_safe')
-            $light_trans_not_safe += 1;
-    }
+    // foreach($third_polls_arr as $third_poll_ans){
+    //     if($third_poll_ans -> QUES_34 == 'not_safe')
+    //         $light_trans_not_safe += 1;
+    // }
 
 
 

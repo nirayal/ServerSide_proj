@@ -252,7 +252,7 @@
 
         <form>
             <h2>Transportation Poll</h2>
-            <a href="index.php" class="previous pollpage">&#8249;</a>    
+            <a href="#" class="previous pollpage">&#8249;</a>
             <a href="poll_second_page.php" class="next pollpage">&#8250;</a>
             <h3>Transportation Poll - part 1/3</h3>
 

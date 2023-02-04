@@ -2,10 +2,12 @@
 <html>
     <head>
         <title>Transportaion Poll</title>
-        <link rel="stylesheet" href="CSS/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSS/style.css">
+        <script src="JS/statistics.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </head>
-    <body>
+    <body onload="data_statistics()">
         <header>
             <navbar>
                 <button id = "log_out_btn" class = "log_out" onclick = log_out()>Log Out</button>
@@ -19,5 +21,24 @@
                 }
             </script>
         </header>
+        <main>
+            <h3>Graph 1:</h3>
+            <p>-EXPLAIN ABOUT GRAPH 1-</p>
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    
+
+
+            <h3>Graph 2:</h3>
+            <p>EXPLAIN ABOUT GRAPH 1</p>
+
+            <h3>Graph 3:</h3>
+            <p>EXPLAIN ABOUT GRAPH 1</p>
+
+            <h3>Graph 4:</h3>
+            <p>EXPLAIN ABOUT GRAPH 1</p>
+
+            <!-- <button onclick="">me</button> -->
+        </main>
+
     </body>
 </html>

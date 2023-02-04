@@ -53,7 +53,7 @@ if($_GET)
 
         <table>
             <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
-            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a  class ="btnIndex" href="statistics.php">Statistics</a></button>  </td>
+            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a  class ="btnIndex" href="statistics.htm">Statistics</a></button>  </td>
         </table>
         
         <br><hr><br>

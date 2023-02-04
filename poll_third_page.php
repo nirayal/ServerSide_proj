@@ -80,7 +80,7 @@
         <form>
             <h2>Transportation Poll</h2>
             <a href="poll_second_page.php" class="previous pollpage">&#8249;</a>
-
+            <a href="#" class="next pollpage">&#8250;</a>
             <h3>Transportation Poll - part 3/3</h3>
 
             <p>1. Would you use a share light transportation such as e-scooter or e-bike? 
@@ -122,7 +122,7 @@
                 </select>
             </p>
 
-            <p><input type="submit" calss = "submit" onclick = "movingPage()"></p>
+            <p><input type="submit" class = "submit" onclick = "movingPage()"></p>
         </form>
 
     </body>

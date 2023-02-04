@@ -12,4 +12,7 @@ adding ajax in one other page.
 
 orgenaize files in folders.
 
-לאפשר צפייה בטופס בכל עת
+
+personal pool
+מדפיס בשאלה של notsafe - yes
+לוודא למה מה קורה פה אמאלהההה
