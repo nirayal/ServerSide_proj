@@ -73,10 +73,13 @@
         </title>
         <link rel="stylesheet" href="CSS/style.css">
         <script src="JS/poll.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body onload="updateText_q_32()">
+
         <form>
             <h2>Transportation Poll</h2>
+            <a href="poll_second_page.php" class="previous pollpage">&#8249;</a>
 
             <h3>Transportation Poll - part 3/3</h3>
 
@@ -121,8 +124,6 @@
 
             <p><input type="submit" calss = "submit" onclick = "movingPage()"></p>
         </form>
-        <p>To the Transportaion Poll part 2 : <button class = "mooving_poll" ><a href="poll_second_page.php">Transportaion Poll Part 2</a></button></p>
-        <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
 
     </body>
 </html>

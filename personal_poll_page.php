@@ -15,15 +15,6 @@
     $second_poll -> find_second_poll_by_attribute('user_name',$_SESSION['user_name']);
     $third_poll -> find_third_poll_by_attribute('user_name',$_SESSION['user_name']);
 
-    
-
-
-
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>

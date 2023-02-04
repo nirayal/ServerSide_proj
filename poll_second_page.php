@@ -80,11 +80,14 @@
         </title>
         <link rel="stylesheet" href="CSS/style.css">
         <script src="JS/poll.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body onload ="updateText_q_23()">
+
         <form>
             <h2>Transportation Poll</h2>
-
+            <a href="poll_first_page.php" class="previous pollpage">&#8249;</a>
+            <a href="poll_third_page.php" class="next pollpage">&#8250;</a>
             <h3>Transportation Poll - part 2/3</h3>
 
             <p>1. How satisfied are you with the availability and reliability of public transportation in your area? 
@@ -125,9 +128,6 @@
 
             <p><input type="submit" class = "submit"></p>
         </form>
-        <p>To the Transportaion Poll part 3 : <button class = "mooving_poll"><a href="poll_third_page.php">Transportaion Poll Part 3</a></button></p>
-        <p>To the Transportaion Poll part 1 : <button class = "mooving_poll"><a href="poll_first_page.php">Transportaion Poll Part 1</a></button></p>
-        <p>Back To Main: <button class = "mooving_poll"><a href="index.php">Back To Main</a></button></p>
-
+     
     </body>
 </html>

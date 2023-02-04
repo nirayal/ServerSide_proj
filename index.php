@@ -26,8 +26,9 @@ if($_GET)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Nir Ayal, Tomer Ben Ami, Lior Sendik</title>
+        <title>Transportaion Poll</title>
         <link rel="stylesheet" href="CSS/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <header>
@@ -51,8 +52,8 @@ if($_GET)
 
 
         <table>
-            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a href="poll_first_page.php">Transportaion Poll</a></button>  </td>
-            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a href="statistics.php">Statistics</a></button>  </td>
+            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
+            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a  class ="btnIndex" href="statistics.php">Statistics</a></button>  </td>
         </table>
         
         <br><hr><br>
