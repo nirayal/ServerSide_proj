@@ -20,7 +20,9 @@
 
     global $database;
     
-    // graph 1 section
+    // graph 1 section:
+    //this graph will withdraw from the DB all the safety questions from second poll, and will return the answer using AJAX.
+
     $public_trans_not_safe = 0;
     $light_trans_not_safe = 0;
 
@@ -66,8 +68,19 @@
     else
        $first_graph_data['response']['graph1_ques_34_very_safe'] = mysqli_fetch_row($result);
 
-    // graph 2 section
+    // graph 2 section:
+    // this graph will withdraw from the DB all the avarage time from each city the exist in the DB from the first poll, and will return the answer using AJAX.
 
+    $cities = [];
+    $result = $database -> query("select distinct QUES_11 from First_Poll");
+    while ($city = fetch_assoc($result))
+    {
+        $result = $database -> query("select sum QUES_134 from First_Poll where QUES_11 = '".$city."'");
+        $second_graph_data['response']["'".$city."'"] = mysqli_fetch_row($result);
+    }
+
+    // graph 3 section :
+    // 
 
     $response_data = array("graph_1" => $first_graph_data, "graph_2" => $second_graph_data, "graph_3" => $third_graph_data, "graph_4" => $fourth_graph_data);
     $response_data = json_encode($response_data);
@@ -80,29 +93,25 @@
 
 
 
-    // $first_polls_arr = $poll -> fetch_first_polls();
-    // $second_polls_arr = $second_poll -> fetch_second_polls();
-    // $third_polls_arr = $third_poll -> fetch_third_polls();
-
     
-    // $arrive_duration_by_city = null;
-    // foreach($first_polls_arr as $first_poll_ans){
-    //     foreach($first_polls_arr -> QUES_11 as $city){
-    //         if($first_poll_ans -> QUES_11 == $city){}
-    //             $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
+    $arrive_duration_by_city = null;
+    foreach($first_polls_arr as $first_poll_ans){
+        foreach($first_polls_arr -> QUES_11 as $city){
+            if($first_poll_ans -> QUES_11 == $city){}
+                $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
             
-    //     }
-    //     print_r($arrive_duration_by_city);
-    // }
+        }
+        print_r($arrive_duration_by_city);
+    }
 
-    // foreach($second_polls_arr as $second_poll_ans){
-    //     if($second_poll_ans -> QUES_25 == 'not_safe')
-    //         $public_trans_not_safe += 1;
-    // }
+    foreach($second_polls_arr as $second_poll_ans){
+        if($second_poll_ans -> QUES_25 == 'not_safe')
+            $public_trans_not_safe += 1;
+    }
 
-    // foreach($third_polls_arr as $third_poll_ans){
-    //     if($third_poll_ans -> QUES_34 == 'not_safe')
-    //         $light_trans_not_safe += 1;
+    foreach($third_polls_arr as $third_poll_ans){
+        if($third_poll_ans -> QUES_34 == 'not_safe')
+            $light_trans_not_safe += 1;
     // }
 
 
