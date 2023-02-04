@@ -12,7 +12,7 @@ if (!$session -> signed_in){
 }
 
 $user_name = $_SESSION['user_name'];
-echo "<p>Hey there <b>". $user_name ."</b>! You are logged in</p><hr>";
+echo "<p>Hey there, <b>". $user_name ."</b>! You are logged in</p><hr>";
 
 if($_GET)
     if($_GET["poll_finish"] == "Done"){        
