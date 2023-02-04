@@ -7,12 +7,11 @@ $urlarray = json_decode($urlContents, true);
 $error_data = array("code" => 0, 'response' => array());
 $success_data = array();
 
-if (User::usernameExist($urlarray['user_name'])) //if func return True - means that there is a user name in that name
-    $error_data["response"]["add_error"] = "User Name is Occupied";
-
 if(!$urlarray['user_name']){
     $error_data["response"]["error_username"] = "Error: User Name is required for sign-up.";
 }
+elseif(User::usernameExist($urlarray['user_name'])) //if func return True - means that there is an old user name in that name
+    $error_data["response"]["error_username"] = "Error: User Name is Occupied.";
 else{
     $chars = str_split($urlarray['user_name']);
     foreach ($chars as $char) {

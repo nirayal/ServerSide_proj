@@ -57,14 +57,6 @@ function sign_up() {
                 else
                     document.getElementById("birthday_error").style.display = 'none';
                 
-                if("add_error" in error){
-                    document.getElementById("response_error").style.display = 'block';
-                    document.getElementById("response_error").innerHTML = error["add_error"];
-                }
-                else
-                    document.getElementById("response_error").style.display = 'none';
-
-
                 console.log("error");
                 }
             else{
@@ -75,9 +67,8 @@ function sign_up() {
                 document.getElementById("password_error").style.display = 'none';
                 document.getElementById("username_error").style.display = 'none';
                 document.getElementById("fullname_error").style.display = 'none';
-                
-                document.getElementById("response_error").style.display = 'none';
-                document.getElementById("response_success").innerHTML = response['success']['response'];
+
+                document.getElementById("response").innerHTML = response['success']['response'];
                 window.location.href="login.php";
             }
 
