@@ -21,64 +21,57 @@
     global $database;
     
     // graph 1 section:
-    //this graph will withdraw from the DB all the safety questions from second poll, and will return the answer using AJAX.
-
-    $public_trans_not_safe = 0;
-    $light_trans_not_safe = 0;
-
-    $public_trans_mid_safe = 0;
-    $light_trans_mid_safe = 0;
-
-    $public_trans_very_safe = 0;
-    $light_trans_very_safe = 0;
-    
+    //this graph will withdraw from the DB all the safety questions from second poll, and will return the answer using AJAX.   
     $result = $database -> query('select count(*) from second_poll where QUES_25 = "not_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_25_not_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_25_not_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_25_not_safe'] = mysqli_fetch_row($result);
     
     $result = $database -> query('select * from second_poll where QUES_25 = "mid_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_25_mid_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_25_mid_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_25_mid_safe'] = mysqli_fetch_row($result);
     
     $result = $database -> query('select * from second_poll where QUES_25 = "very_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_25_very_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_25_very_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_25_very_safe'] = mysqli_fetch_row($result);
 
     $result = $database -> query('select count(*) from third_poll where QUES_34 = "not_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_34_not_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_34_not_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_34_not_safe'] = mysqli_fetch_row($result);
 
     $result = $database -> query('select * from third_poll where QUES_34 = "mid_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_34_mid_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_34_mid_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_34_mid_safe'] = mysqli_fetch_row($result);
     
     $result = $database -> query('select * from third_poll where QUES_34 = "very_safe"');
     if ($result->num_rows == 0)
-        $first_graph_data['response']['graph1_ques_34_very_safe'] = 0;
+        $first_graph_data['response']['graph1_ques_34_very_safe'] = '0';
     else
        $first_graph_data['response']['graph1_ques_34_very_safe'] = mysqli_fetch_row($result);
 
     // graph 2 section:
     // this graph will withdraw from the DB all the avarage time from each city the exist in the DB from the first poll, and will return the answer using AJAX.
 
-    $cities = [];
     $result = $database -> query("select distinct QUES_11 from First_Poll");
-    while ($city = fetch_assoc($result))
-    {
-        $result = $database -> query("select sum QUES_134 from First_Poll where QUES_11 = '".$city."'");
-        $second_graph_data['response']["'".$city."'"] = mysqli_fetch_row($result);
+    if ($result->num_rows == 0)
+        $second_graph_data['response']['graph2_cities'] = null;
+    else {
+        $second_graph_data['response']['graph2_cities'] = array();
+        while ($city = $result -> fetch_assoc()) {
+            $resultCity = $database->query("select AVG(QUES_131)+AVG(QUES_134)+AVG(QUES_137) from first_poll where QUES_11 = '" . $city['QUES_11'] . "' GROUP by QUES_11");
+            $second_graph_data['response']['graph2_cities']["'". $city["QUES_11"]."'"] = mysqli_fetch_row($resultCity);
+        }
+        
     }
-
     // graph 3 section :
     // 
 
@@ -88,60 +81,6 @@
 
 
 
-
-
-
-
-
-    
-    $arrive_duration_by_city = null;
-    foreach($first_polls_arr as $first_poll_ans){
-        foreach($first_polls_arr -> QUES_11 as $city){
-            if($first_poll_ans -> QUES_11 == $city){}
-                $arrive_duration_by_city [$city] += (int)$first_poll_ans -> $QUES_134;
-            
-        }
-        print_r($arrive_duration_by_city);
-    }
-
-    foreach($second_polls_arr as $second_poll_ans){
-        if($second_poll_ans -> QUES_25 == 'not_safe')
-            $public_trans_not_safe += 1;
-    }
-
-    foreach($third_polls_arr as $third_poll_ans){
-        if($third_poll_ans -> QUES_34 == 'not_safe')
-            $light_trans_not_safe += 1;
-    // }
-
-
-
-
-
-
-
-    // $public_trans_not_safe = "select count(*) from second_poll where QUES_25 = 'not_safe'";
-    // $public_trans_mid_safe = "select * from second_poll where QUES_25 = 'mid_safe'";
-    // $public_trans_very_safe = "select * from second_poll where QUES_25 = 'very_safe'";
-    // $light_trans_not_safe = "select count(*) from third_poll where QUES_34 = 'not_safe'";
-    // $light_trans_mid_safe = "select * from third_poll where QUES_34 = 'mid_safe'";
-    // $light_trans_very_safe = "select * from third_poll where QUES_34 = 'very_safe'";
-
-    // global $database;
-    // $error = null;
-
-    // $sql = "select * from first_poll where ".$attribute." = '".$value."'";
-    // $result = $database -> query($sql);
-    // if(!$result)
-    //     $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
-    // elseif($result -> num_rows >0)
-    // {
-    //     $found_pull = $result ->fetch_assoc();
-    //     $this -> instantation($found_pull);
-    // }
-    // else
-    //     $error = "Can't find poll by this value";
-    // return $error;
 
 
 ?>
