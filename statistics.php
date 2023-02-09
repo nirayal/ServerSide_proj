@@ -73,11 +73,50 @@
         
     }
     // graph 3 section :
-    // 
+    //this graph will withdraw from the DB the subject that answerd that their felt improvment to decline in the public transportation in their area. 
+
+    $resalt = $database -> query("select Q_22 from second_poll where Q_22 is like 'yes%'");
+    $countImprovments = 0;
+    $countDeclines = 0;
+    if ($result->num_rows == 0)
+        $third_graph_data['response']['graph3_chanches'] = null;
+    else{
+        $third_graph_data['response']['graph3_chanches'] = array();
+        while($change = $resalt -> fetch_assoc()){
+            if(mysqli_fetch_row($change) == 'yes - improvments')
+                $countImprovments = $countImprovments + 1;
+            else
+                $countDeclines = $countDeclines + 1;
+        }
+        $third_graph_data['reresponses']['graph3_chanches']['improvments'] = $countImprovments;
+        $third_graph_data['reresponses']['graph3_chanches']['Declines'] = $countDeclines;
+       }
+
+    //graph 4 section :
+    //this geaph will withdraw from the DB the subjects opintion about the collage investing in public transportation in order to improve it.
+    $result = $database -> query("select Q_23 from second_poll");
+    $countAgree = 0;
+    $countDisagree = 0;
+    if($resalt -> num_rows == 0)
+       $fourth_graph_data['response']['collage_invest'] = null;
+    else{
+        $fourth_graph_data['response']['collage_invest'] = array();
+        while($opinion = $resalt -> fetch_assoc()){
+            if(mysqli_fetch_row($opinion) == 'yes')
+                $countAgree = $countAgree + 1;
+            else
+                $countDisagree = $countDisagree + 1;
+        }
+        $fourth_graph_data['response']['collage_invest']['investAgree'] = $countAgree;
+        $fourth_graph_data['response']['collage_invest']['investDisagree'] = $countDisagree;
+    }
 
     $response_data = array("graph_1" => $first_graph_data, "graph_2" => $second_graph_data, "graph_3" => $third_graph_data, "graph_4" => $fourth_graph_data);
     $response_data = json_encode($response_data);
     echo $response_data;
+
+    
+
 
 
 
