@@ -15,7 +15,7 @@
     define('QUES_138','what is the distance to the collage from your home?');
 
     define('QUES_21','how satisfied are you with the availability and reliability of public transportation in your area?');
-    define('QUES_22','have you noticed any improvements or declines in public transportation in your area in recent years?');
+    define('QUES_22','have you noticed any improvements or declines in public transportation in your area in recent year?');
     define('QUES_23','do you think the collage should invest in public transportation?');
     define('QUES_231','name one way that the collage should invest to inprove public transportation?'); //if yes - JS
     define('QUES_24','How do you think the cost of public transportation compares to the cost of owning and maintaining a personal vehicle?');
