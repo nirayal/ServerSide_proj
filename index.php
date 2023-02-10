@@ -20,7 +20,6 @@ if($_GET)
         $second_poll->set_second_poll_final();
         $third_poll->set_third_poll_final();
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +28,9 @@ if($_GET)
         <title>Transportaion Poll</title>
         <link rel="stylesheet" href="CSS/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="JS/general.js"></script>
     </head>
-    <body>
+    <body onload="done_poll()">
         <header>
             <h2>This is the main page of the poll</h2>
             <p>you can follow "My Poll" in order to check your answers</p>
@@ -38,32 +38,34 @@ if($_GET)
             <p> Your Progress Is : 
                 <?php
                 $precentageOfProcess = $poll->first_poll_full_status() + $second_poll->second_poll_full_status() + $third_poll->third_poll_full_status();
-                if ($precentageOfProcess == 3)
+                if ($precentageOfProcess >= 3)
                     echo "<b>100%</b>";
-                elseif ($precentageOfProcess == 2)
-                    echo "<b>66.6%</b>";
-                elseif ($precentageOfProcess == 1)
-                    echo "<b>33.3%</b>";
                 else
-                    echo "<b>0%</b>";
+                    echo "<b>".($precentageOfProcess / 3 * 100)."%</b>";                
                 ?>
             of the poll.</p>
         </header>      
 
 
         <table>
-            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
-            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a  class ="btnIndex" href="statistics.htm">Statistics</a></button>  </td>
+            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button id="poll_btn"><a id = "poll_link" class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
+            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button id="statistics_btn"><a id="statistics_link" class ="btnIndex" href="statistics.htm">Statistics</a></button>  </td>
         </table>
         
         <br><hr><br>
         
         <form>
             <h3>Final mode </h3>
+            <div id = "final">
+                <?php
+                if($poll->first_poll_is_final() == 'final' and $second_poll->second_poll_is_final() == "final" and $third_poll->third_poll_is_final() == "final")
+                    echo "finito";
+                ?>
+            </div>
+            <div id = "non-final">
             <p>press here if you done your poll<br>
-            you will be able to see the statistics.</p>
-            <!-- java script for seeing the statistics -->            
-            <p><input type="submit" name = "poll_finish" value="Done"></p>
+            you will be able to see the statistics. but you wont be able to edit your poll again</p>
+            <p><input type="submit" name = "poll_finish" value="Done"></p></div>
         </form>
         
         

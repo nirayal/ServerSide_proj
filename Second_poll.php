@@ -152,5 +152,20 @@ class Second_Poll
             $user_progress += (1/5);
         return $user_progress;
     }  
+    public function second_poll_is_final(){
+        global $database;
+        $error = null;
+
+        $this->find_second_poll_by_attribute('user_name', $_SESSION['user_name']);
+        $sql = "select poll_status from second_poll where user_name = '".$_SESSION['user_name']."'";
+        // echo $sql;
+        $result = $database -> query($sql);
+        // print_r($result);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        
+        return mysqli_fetch_row($result)['0'];
+    }
 }
 $second_poll = new Second_Poll();

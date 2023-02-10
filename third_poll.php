@@ -148,5 +148,20 @@ class Third_Poll
 
         return $user_progress;
     }  
+    public function third_poll_is_final(){
+        global $database;
+        $error = null;
+
+        $this->find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
+        $sql = "select poll_status from third_poll where user_name = '".$_SESSION['user_name']."'";
+        // echo $sql;
+        $result = $database -> query($sql);
+        // print_r($result);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        
+        return mysqli_fetch_row($result)['0'];
+    }
 }
 $third_poll = new Third_Poll();

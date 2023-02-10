@@ -59,7 +59,7 @@ class First_Poll
         $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
         $this->poll_status = "final";
      
-        $sql = "update first_poll set poll_status = '" . $this->poll_status . " where user_name = '" . $_SESSION['user_name'] . "'";
+        $sql = "update first_poll set poll_status = '" . $this->poll_status . "' where user_name = '" . $_SESSION['user_name'] . "'";
         $result = $database -> query($sql);
 
         if(!$result)    
@@ -175,7 +175,22 @@ class First_Poll
             if($this -> QUES_137 != null && $this -> QUES_138 != null)
                 $user_progress += (1/6);
         }
-        return $user_progress;
+        return (float)$user_progress;
     }  
+    public function first_poll_is_final(){
+        global $database;
+        $error = null;
+
+        $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
+        $sql = "select poll_status from first_poll where user_name = '".$_SESSION['user_name']."'";
+        // echo $sql;
+        $result = $database -> query($sql);
+        // print_r($result);
+
+        if(!$result)    
+            $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
+        
+        return mysqli_fetch_row($result)['0'];
+    }
 }
 $poll = new First_Poll();
