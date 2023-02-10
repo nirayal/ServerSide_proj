@@ -15,12 +15,17 @@ window.onload = function data_statistics() {
             //graph 2
             var second_graph_data = response["graph_2"]["response"]['graph2_cities'];
             var dataPointsArray = [];
- 
             for (const [key,value] of Object.entries(second_graph_data)) {
                 dataPointsArray.push({ label: (key), y: parseFloat(value) });
             }
             
             //graph 3
+            var third_graph_data = response["graph_3"]["response"];
+            
+            //graph 4
+            var fourth_graph_data = response["graph_4"]["response"]['collage_invest'];
+
+
 
             
         }
@@ -29,7 +34,10 @@ window.onload = function data_statistics() {
                     exportEnabled: true,
                     animationEnabled: true,
                     title:{
-                        text: "The safety among the survey answers"
+                        text: "The safety among the survey answers",
+                        fontWeight: "bold",
+                        fontFamily: "calibri",
+                        fontSize: 30
                     },
                     axisX: {
                         title: "Safety Level"
@@ -84,11 +92,14 @@ window.onload = function data_statistics() {
 
         //graph 2
 
-        var chart1 = new CanvasJS.Chart("chartContainer2", {
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
             animationEnabled: true,
             theme: "light2",
             title: {
-                text: "The avarage travel time to the collage by city"
+                text: "The avarage travel time to the collage by city",
+                fontWeight: "bold",
+                fontFamily: "calibri",
+                fontSize: 30
             },
             axisY: {
                 scaleBreaks: {
@@ -105,10 +116,49 @@ window.onload = function data_statistics() {
             }]
 
         });       
-        chart1.render();
+        chart2.render();
 
+        //graph 3
+        var chart3 = new CanvasJS.Chart("chartContainer3", {
+            animationEnabled: true,
+            title:{
+                text: "Students who noticed changes in public transportaion in their recent year",
+                fontWeight: "bold",
+                fontFamily: "calibri",
+                fontSize: 30
+            },
+            data: [{
+                 type: "doughnut",
+                 dataPoints: [
+                 {  y: third_graph_data['chanches_yes']['Improvments'], indexLabel: "Yes, Improvments" },
+                 {  y: third_graph_data['chanches_yes']['Declines'], indexLabel: "Yes, Declines" },
+                 {  y: third_graph_data['chanches_no'], indexLabel: "No" }
+                 ]
+               }]
+            });
+        chart3.render();
 
-
+        //graph 4
+        var chart4 = new CanvasJS.Chart("chartContainer4",
+        {
+          title:{
+            text: "Sudents opinion - MTA collage should invest in public transportaion",
+            fontWeight: "bold",
+            fontFamily: "calibri",
+            fontSize: 30
+          },
+          data: [
+          {
+           type: "doughnut",
+           dataPoints: [
+           {  y: fourth_graph_data['Agree'], indexLabel: "Yes" },
+           {  y: fourth_graph_data['Disagree'], indexLabel: "No" }
+           ]
+         }
+         ]
+       });
+    
+        chart4.render();
 
         
     }

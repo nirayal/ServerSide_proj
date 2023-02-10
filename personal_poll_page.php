@@ -37,12 +37,6 @@
             <p>3. witch transport vehicle do you use?
                 <select name="vehicle1" id="vehicle1" onchange="updateText1()">
                     <option value= <?php echo $poll->__get("QUES_13");?>><?php echo $poll->__get("QUES_13");?></option>    
-                    <option value="car">Car</option>
-                    <option value="bus">Bus</option>
-                    <option value="bike">Bike</option>
-                    <option value="e-bike">E-Bike</option>
-                    <option value="foot">Foot</option>
-                    <option value="motorcycle">Motorcycle</option>
                 </select>
             </p>
                 

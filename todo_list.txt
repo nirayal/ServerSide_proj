@@ -1,23 +1,7 @@
-לסדר תיקיות ולשים את כל הCSS ביחד
-לסדר את הקישורים בתוך הדפים שיעבדו
-
-
-we need to build up the statistics  
-AJAX:
-adding ajax in one other page. 
-
 
 orgenaize files in folders.
 
 
-personal pool
-מדפיס בשאלה של notsafe - yes
-לוודא למה מה קורה פה אמאלהההה
-
 API
 רשימת ערים נפתחת שמביאה את שם העיר
 יש תל אביב יפו אד - ולא 14 גרסאות
-
-סטטיסטיקות
-להעביר עיצובים של הגרפים לתוך CSS
-לחכות אחרי שיש לנו 4 גרף

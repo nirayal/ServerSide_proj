@@ -75,40 +75,47 @@
     // graph 3 section :
     //this graph will withdraw from the DB the subject that answerd that their felt improvment to decline in the public transportation in their area. 
 
-    $resalt = $database -> query("select Q_22 from second_poll where Q_22 is like 'yes%'");
+    $result = $database -> query("select QUES_22 from second_poll where QUES_22 like 'yes%'");
     $countImprovments = 0;
     $countDeclines = 0;
     if ($result->num_rows == 0)
-        $third_graph_data['response']['graph3_chanches'] = null;
+        $third_graph_data['response']['chanches_yes'] = null;
     else{
-        $third_graph_data['response']['graph3_chanches'] = array();
-        while($change = $resalt -> fetch_assoc()){
-            if(mysqli_fetch_row($change) == 'yes - improvments')
+        $third_graph_data['response']['chanches_yes'] = array();
+        while($change = $result -> fetch_assoc()){
+            // print_r($change['QUES_22']);
+            if($change['QUES_22'] == 'yes_I')
                 $countImprovments = $countImprovments + 1;
             else
                 $countDeclines = $countDeclines + 1;
         }
-        $third_graph_data['reresponses']['graph3_chanches']['improvments'] = $countImprovments;
-        $third_graph_data['reresponses']['graph3_chanches']['Declines'] = $countDeclines;
-       }
-
+        $third_graph_data['response']['chanches_yes']['Improvments'] = $countImprovments;
+        $third_graph_data['response']['chanches_yes']['Declines'] = $countDeclines;
+    }
+    $result = $database -> query("select Count(QUES_22) from second_poll where QUES_22 = 'no'");
+    if ($result->num_rows == 0)
+        $third_graph_data['response']['chanches_no'] = null;
+    else
+        $third_graph_data['response']['chanches_no'] = mysqli_fetch_row($result);
+    
     //graph 4 section :
-    //this geaph will withdraw from the DB the subjects opintion about the collage investing in public transportation in order to improve it.
-    $result = $database -> query("select Q_23 from second_poll");
+    //this geaph will withdraw from the DB the subjects opinion about the collage investing in public transportation in order to improve it.
+    $result = $database -> query("select QUES_23 from second_poll");
     $countAgree = 0;
     $countDisagree = 0;
-    if($resalt -> num_rows == 0)
+    if($result -> num_rows == 0)
        $fourth_graph_data['response']['collage_invest'] = null;
     else{
         $fourth_graph_data['response']['collage_invest'] = array();
-        while($opinion = $resalt -> fetch_assoc()){
-            if(mysqli_fetch_row($opinion) == 'yes')
+        while($opinion = $result -> fetch_assoc()){
+            // print_r($opinion['QUES_23']);
+            if($opinion['QUES_23'] == 'yes')
                 $countAgree = $countAgree + 1;
             else
                 $countDisagree = $countDisagree + 1;
         }
-        $fourth_graph_data['response']['collage_invest']['investAgree'] = $countAgree;
-        $fourth_graph_data['response']['collage_invest']['investDisagree'] = $countDisagree;
+        $fourth_graph_data['response']['collage_invest']['Agree'] = $countAgree;
+        $fourth_graph_data['response']['collage_invest']['Disagree'] = $countDisagree;
     }
 
     $response_data = array("graph_1" => $first_graph_data, "graph_2" => $second_graph_data, "graph_3" => $third_graph_data, "graph_4" => $fourth_graph_data);

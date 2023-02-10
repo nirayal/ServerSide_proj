@@ -61,3 +61,10 @@ navbar{
   .pollpage {
     border-radius: 50%;
   }
+
+  /* graphs css - from CanvasJS */
+  .graph{
+    height: 370px;
+    width: 90%;
+    margin: auto;
+  }
