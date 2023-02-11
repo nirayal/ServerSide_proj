@@ -1,17 +1,5 @@
-
 orgenaize files in folders.
-
 
 API
 רשימת ערים נפתחת שמביאה את שם העיר
 יש תל אביב יפו אד - ולא 14 גרסאות
-
-הגבלות צפייה וכניסה למקומות בתנאים מסוים
-לדוגמה אי אפשר לראות סטטיסטיקה מבלי לעשות סקר done
-אחרי דונננ לא ניתן להיכנס לסקר
-
-when done - click
-poll -disabled
-statistics - abled
-just fix that - why there is problem with the href propery?
-יכול לעשות גם 2 אופציות של כפתורים ולהציג כפתורי דמה אם זה לא יעבוד בדרך הזאת
