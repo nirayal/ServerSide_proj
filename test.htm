@@ -1,0 +1,72 @@
+<!-- <?php
+// $temp = 'תל';
+// $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q='".$temp."'";
+// $data = file_get_contents($urlContents);
+// $cities = json_decode($data, true);
+// // print_r($cities);
+// $cities = $cities['result']['records'];
+// $i=0;
+// while($i < count($cities)){
+//     echo ($cities[$i]['שם יישוב']."<br>");
+//     $i+=1;   
+// }
+?> -->
+<!DOCTYPE html>    
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    </head>
+    <body>
+    <form>
+    <label for="city">1. from witch city do you drive to the collage?</label>
+    <input Alist = "list_cities" type='text' id = "city" name="city" autocomplete="off" oninput="citynamesUpdate()" aria-autocomplete="list" aria-labelledby="list_cities">
+        <datalist id='list_cities'></datalist>
+    </form>
+    
+    <script>
+        // let city = document.getElementById("api");
+        // console.log(city);
+        // city.addEventListener("input",citynamesUpdate());
+        
+        function citynamesUpdate(){            
+            let letters = document.getElementById("city").value;
+            console.log(letters);
+            let datalist = document.getElementById("list_cities");
+            result = fetch('https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q=' + letters)            
+            .then(data=>{return data.json()})
+            .then(res=>{
+                const cities = res.result.records;
+                deleteChilds();
+                i= 0;
+                while(i<5 && i<cities.length){
+                    const option = document.createElement("option");
+                    let x = Object.entries(cities[i]);
+                    option.value = x[3][1];
+                    datalist.appendChild(option);                    
+                    i+=1;
+                }
+                console.log(datalist);
+                
+            });
+        }
+     
+        function deleteChilds() {
+        var e = document.getElementById("list_cities");
+        //e.firstElementChild can be used.
+        var child = e.lastElementChild; 
+        while (child) {
+            e.removeChild(child);
+            child = e.lastElementChild;
+        }
+    }
+
+
+    </script>
+    </body>
+
+</html>
+
+
+<!-- .then(res=>{const city = res.result.records;
+    console.log(city); -->
