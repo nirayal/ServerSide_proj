@@ -48,8 +48,14 @@ if($_GET)
 
 
         <table>
-            <tr>  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button id="poll_btn"><a id = "poll_link" class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
-            <tr>  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button id="statistics_btn"><a id="statistics_link" class ="btnIndex" href="statistics.htm">Statistics</a></button>  </td>
+            <!-- real -->
+            <tr id="poll_real">  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a class ="btnIndex" href="poll_first_page.php">Transportaion Poll</a></button>  </td>
+            <!-- fake -->
+            <tr id="poll_fake">  <td>  <p>Transportaion Poll :</p>  </td> <td>  <button><a class ="btnIndex" href="#">Transportaion Poll</a></button>  </td>
+            <!-- real -->
+            <tr id="statistics_real">  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a class ="btnIndex" href="statistics.htm">Statistics</a></button>  </td>
+            <!-- fake -->
+            <tr id="statistics_fake">  <td>  <p>Poll's Statistics : </p>  </td> <td>  <button><a class ="btnIndex" href="#">Statistics</a></button>  </td>
         </table>
         
         <br><hr><br>
