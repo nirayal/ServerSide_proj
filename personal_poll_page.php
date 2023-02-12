@@ -1,10 +1,10 @@
 <?php
-    require_once("includes\init.php");
+    require_once("includes/init.php");
     include("navbar.htm");
-    require_once("includes\First_Poll.php");
-    require_once("includes\Second_Poll.php");
-    require_once("includes\\third_Poll.php");
-    require_once("includes\questions_define.php");
+    require_once("includes/First_Poll.php");
+    require_once("includes/Second_poll.php");
+    require_once("includes/third_poll.php");
+    require_once("includes/questions_define.php");
 
     if (!$session->signed_in){
         header('Location: login.php');

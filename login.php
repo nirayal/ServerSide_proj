@@ -1,5 +1,5 @@
 <?php
-require_once("includes\init.php");
+require_once("includes/init.php");
 $error = null;
 if ($_POST) {
     if (!$_POST['user_name'])

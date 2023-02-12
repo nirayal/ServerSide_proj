@@ -17,9 +17,6 @@ class First_Poll
     private $QUES_136;
     private $QUES_137;
     private $QUES_138;
-
-    public function First_Poll()    {}
-
     public function __construct()
     {
         $this -> poll_status = "non-final";

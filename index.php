@@ -1,9 +1,9 @@
 <?php
-require_once("includes\init.php");
+require_once("includes/init.php");
 include("navbar.htm");
-require_once("includes\First_Poll.php");
-require_once("includes\Second_Poll.php");
-require_once("includes\\third_Poll.php");
+require_once("includes/First_Poll.php");
+require_once("includes/Second_poll.php");
+require_once("includes/third_poll.php");
 
 
 if (!$session -> signed_in){
@@ -34,7 +34,7 @@ if($_GET)
         <header>
             <h2>This is the main page of the poll</h2>
             <p>you can follow "My Poll" in order to check your answers</p>
-            <p>the poll contain 3 sections. in the end of every section you can stop and continue at all time.</p><br>
+            <p>the poll contains 3 sections. in the end of every section you can stop and continue at all time.</p><br>
             <p> Your Progress Is : 
                 <?php
                 $firstProccess = $poll->first_poll_full_status();

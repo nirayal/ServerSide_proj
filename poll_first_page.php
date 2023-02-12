@@ -1,7 +1,7 @@
 <?php
-    require_once("includes\init.php");
-    require_once("includes\First_Poll.php");
-    require_once("includes\questions_define.php");
+    require_once("includes/init.php");
+    require_once("includes/First_Poll.php");
+    require_once("includes/questions_define.php");
     include("navbar.htm");
 
     if (!$session->signed_in){

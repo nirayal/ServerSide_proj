@@ -13,8 +13,6 @@ class Second_Poll
     private $QUES_24;
     private $QUES_25;
 
-    public function Second_poll() {}
-
     function __toString(){ //for test to print the object
         return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
     }

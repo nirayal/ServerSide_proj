@@ -11,8 +11,6 @@ class Third_Poll
     private $QUES_321;
     private $QUES_33;
     private $QUES_34;
-    
-    public function Third_Poll()    {}
     function __toString(){ //for test to print the object
         return "Poll: || number: ".$this->poll_number." | by user: ".$this->user_name." | status: ".$this->poll_status." ||<br>";
     }

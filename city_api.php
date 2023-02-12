@@ -1,7 +1,7 @@
 
 <?php
 include("navbar.htm");
-require_once("includes\init.php");
+require_once("includes/init.php");
 
 if (!$session -> signed_in){
     header('Location: login.php');
