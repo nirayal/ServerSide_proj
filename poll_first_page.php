@@ -15,30 +15,30 @@
             $error .= "Error:  The city is required.<br>";    }
         else {
             $chars = str_split($_GET['city']);
+            $strForAPI = '';
             foreach ($chars as $char){
-                if(! (ctype_alpha($char) || $char = " ")){
+                if(! (ctype_alpha($char) || $char == " ")){                   
                     $error .= "Error:  City must contain only letters.<br>";
                     break;
                 }
-            }           
-                //api section - generate the city name to a familiar one.
-                $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q='".$_GET['city']."'";
-                $data = file_get_contents($urlContents);
-                $city = json_decode($data, true);
-                echo $city;
-                // $city = $city['result']['records'][0];
-                // echo ($city['תעתיק']);
-                //api until here - need to fix....
-                if($good)
-                    //OK
-                    $nir;
                 else
-                    $error .= "Error:  City name is not familiar by API. try again with simple letters.<br>";
-
+                    if($char == " ")
+                        $strForAPI .= '%20';
+                    else
+                        $strForAPI .= $char;
+            }
+            //api section - generate the city name to a familiar one.
+            $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&limit=1&q=".$strForAPI;
+            $data = file_get_contents($urlContents);
+            $city = json_decode($data, true);
+            $city = $city['result']['records'];
+            if(empty($city))
+                $error .= "Error:  City name is not familiar by API. try again with simple letters.<br>";
+            else{
+                $city = $city[0]['תעתיק'];
+                $_GET['city'] = $city;
+            }
         }
-
-
-
 
         if ( ! $_GET['area']) {
             $error .= "Error:  The area is required.<br>";    }
@@ -243,7 +243,7 @@
             else
                 $error = $poll->update_first_poll();
             if(!$error){
-                // header('Location: poll_second_page.php');
+                header('Location: poll_second_page.php');
             }
             else
                 echo ($error);
@@ -271,10 +271,8 @@
             <h3>Transportation Poll - part 1/3</h3>
 
             <p>1. from witch city do you drive to the collage? <input type="text" maxlength="200" name="city"></p>
-            <p><a href="city_api.php" target="_blank">how to write correctly the city name</a><p>
 
             <p>2. witch area of the city? <input type="text" maxlength="200" name="area"></p>
-
             
             <p>3. witch transport vehicle do you use?
                 <select name="vehicle1" id="vehicle1" onchange="updateText1()">
