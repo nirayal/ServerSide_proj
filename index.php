@@ -32,10 +32,10 @@ if($_GET)
     </head>
     <body onload="done_poll()">
         <header>
-            <h2>This is the main page of the poll</h2>
-            <p>you can follow "My Poll" in order to check your answers</p>
+            <h2>This is the poll main page</h2>
+            <p>you can follow "My Poll" in order to check your answers at any time.</p>
             <p>the poll contains 3 sections. in the end of every section you can stop and continue at all time.</p><br>
-            <p> Your Progress Is : 
+            <h3> Your Progress Is : 
                 <?php
                 $firstProccess = $poll->first_poll_full_status();
                 $secondProccess = $second_poll->second_poll_full_status();
@@ -48,7 +48,7 @@ if($_GET)
                 else
                     echo "<b>".($precentageOfProcess / 3 * 100)."%</b>";                
                 ?>
-            of the poll.</p>
+            of the poll.</h3>
         </header>      
 
 
@@ -74,8 +74,8 @@ if($_GET)
                 ?>
             </div>
             <div id = "non-final">
-            <p>press here if you done your poll<br>
-            you will be able to see the statistics. but you wont be able to edit your poll again</p>
+            <p>press here in order to finish the poll<br>
+            you will be able to see the statistics. on the other hand you wont be able to edit your poll again</p>
             <p><input type="submit" name = "poll_finish" value="Done"></p></div>
         </form>
     </body>
