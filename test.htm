@@ -46,20 +46,19 @@
                     datalist.appendChild(option);                    
                     i+=1;
                 }
-                console.log(datalist);
-                
+                console.log(datalist);                
             });
         }
      
         function deleteChilds() {
-        var e = document.getElementById("list_cities");
-        //e.firstElementChild can be used.
-        var child = e.lastElementChild; 
-        while (child) {
-            e.removeChild(child);
-            child = e.lastElementChild;
+            var e = document.getElementById("list_cities");
+            //e.firstElementChild can be used.
+            var child = e.lastElementChild;
+            while (child) {
+                e.removeChild(child);
+                child = e.lastElementChild;
+            }
         }
-    }
 
 
     </script>
