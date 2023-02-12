@@ -21,7 +21,24 @@
                     break;
                 }
             }           
+                //api section - generate the city name to a familiar one.
+                $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q='".$_GET['city']."'";
+                $data = file_get_contents($urlContents);
+                $city = json_decode($data, true);
+                echo $city;
+                // $city = $city['result']['records'][0];
+                // echo ($city['תעתיק']);
+                //api until here - need to fix....
+                if($good)
+                    //OK
+                    $nir;
+                else
+                    $error .= "Error:  City name is not familiar by API. try again with simple letters.<br>";
+
         }
+
+
+
 
         if ( ! $_GET['area']) {
             $error .= "Error:  The area is required.<br>";    }
@@ -52,7 +69,7 @@
                 if ($_GET['time_car3'] == '0')
                     $error .= "Error : time cannot be zero.<br>";
                 else
-                    $error .= "Error : time is required for car question 3.<br>";
+                        $error .= "Error : time is required for car question 3.<br>";
             } elseif ((int) $_GET['time_car3'] < 0)
                 $error .= "Error : time cannot be negative.<br>";
         }
@@ -161,15 +178,7 @@
         if(isset($error)){
             echo $error;
         }
-        else{   
-            //api section - generate the city name to a familiar one.
-            $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q='".$_GET['city']."'";
-            $data = file_get_contents($urlContents);
-            $city = json_decode($data, true);            
-            $city = $city['result']['records'][0];
-            echo ($city['תעתיק']);
-//api until here - need to fix....
-            
+        else{              
             $flagNewOBJ = false;
             if($poll->find_first_poll_by_attribute("user_name",$_SESSION["user_name"]) != null){ //null means that i have a poll and done insatntaion
                 $poll = new First_Poll();

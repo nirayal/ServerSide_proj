@@ -21,11 +21,11 @@ if (!$session -> signed_in){
         <p>Here you will check how to enter the city name correctly</p>
         <p>Please enter it to the form in the way the service shows you.</p>
 
-        
+
 
         <form>
         
-        <p> enter city name to search: <input id = "nir" name = "citytosearch" type="text" onchange="func()"></p>
+        <p> enter city name to search: <input id = "nir" name = "citytosearch" type="text"></p>
         <div id = "options">
             <p>you choose wrote the letters: <b><span id = "enter"></span></b>.<br>
             look at your options - enter the city name as follows.
@@ -59,11 +59,7 @@ if (!$session -> signed_in){
     
     <script>
 
-        function func() {
-            let city = document.getElementById('nir').value;
-            document.getElementById('enter').innerHTML = city;
 
-        }
         // let city = document.getElementById("api");
         // console.log(city);
         // city.addEventListener("input",citynamesUpdate());
