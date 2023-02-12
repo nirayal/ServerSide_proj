@@ -162,6 +162,14 @@
             echo $error;
         }
         else{   
+            //api section - generate the city name to a familiar one.
+            $urlContents = "https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q='".$_GET['city']."'";
+            $data = file_get_contents($urlContents);
+            $city = json_decode($data, true);            
+            $city = $city['result']['records'][0];
+            echo ($city['תעתיק']);
+//api until here - need to fix....
+            
             $flagNewOBJ = false;
             if($poll->find_first_poll_by_attribute("user_name",$_SESSION["user_name"]) != null){ //null means that i have a poll and done insatntaion
                 $poll = new First_Poll();
@@ -226,10 +234,7 @@
             else
                 $error = $poll->update_first_poll();
             if(!$error){
-                // echo ("poll has been added to the DB<br>");
-                // echo("this is the object that has been added: ".$poll);                
-                // $poll -> set_first_poll_final();
-                header('Location: poll_second_page.php');
+                // header('Location: poll_second_page.php');
             }
             else
                 echo ($error);
@@ -257,6 +262,8 @@
             <h3>Transportation Poll - part 1/3</h3>
 
             <p>1. from witch city do you drive to the collage? <input type="text" maxlength="200" name="city"></p>
+            <p><a href="city_api.php" target="_blank">how to write correctly the city name</a><p>
+
             <p>2. witch area of the city? <input type="text" maxlength="200" name="area"></p>
 
             

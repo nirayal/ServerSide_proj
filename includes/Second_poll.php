@@ -164,10 +164,12 @@ class Second_Poll
 
         if(!$result)    
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
-        
-        if(mysqli_fetch_row($result)['0'] == 'final')
-            return "final";
+
+        if($result -> num_rows > 0)
+            if(mysqli_fetch_row($result)['0'] == 'final')
+                return "final";
         else
-            return 'non-final';   }
+            return 'non-final';   
+    }
 }
 $second_poll = new Second_Poll();
