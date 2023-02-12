@@ -97,7 +97,7 @@
             <p>2. Have you noticed any improvements or declines in public transportation in your area in recent years? 
             <select name="q_22" id="q_22">
                 <option value="null">Enter Value</option>    
-                <option value="yes_I">Yes, Improvements.</option>
+                <option value="yes_I">Yes, Improvements</option>
                 <option value="yes_D">Yes, Declines</option>
                 <option value="no">No</option>
             </select>

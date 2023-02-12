@@ -28,13 +28,13 @@
     else
         $first_graph_data['response']['graph1_ques_25_not_safe'] = mysqli_fetch_row($result);
     
-    $result = $database -> query('select * from second_poll where QUES_25 = "mid_safe"');
+    $result = $database -> query('select count(*) from second_poll where QUES_25 = "mid_safe"');
     if ($result->num_rows == 0)
         $first_graph_data['response']['graph1_ques_25_mid_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_25_mid_safe'] = mysqli_fetch_row($result);
     
-    $result = $database -> query('select * from second_poll where QUES_25 = "very_safe"');
+    $result = $database -> query('select count(*) from second_poll where QUES_25 = "very_safe"');
     if ($result->num_rows == 0)
         $first_graph_data['response']['graph1_ques_25_very_safe'] = '0';
     else
@@ -46,13 +46,13 @@
     else
         $first_graph_data['response']['graph1_ques_34_not_safe'] = mysqli_fetch_row($result);
 
-    $result = $database -> query('select * from third_poll where QUES_34 = "mid_safe"');
+    $result = $database -> query('select count(*) from third_poll where QUES_34 = "mid_safe"');
     if ($result->num_rows == 0)
         $first_graph_data['response']['graph1_ques_34_mid_safe'] = '0';
     else
         $first_graph_data['response']['graph1_ques_34_mid_safe'] = mysqli_fetch_row($result);
     
-    $result = $database -> query('select * from third_poll where QUES_34 = "very_safe"');
+    $result = $database -> query('select count(*) from third_poll where QUES_34 = "very_safe"');
     if ($result->num_rows == 0)
         $first_graph_data['response']['graph1_ques_34_very_safe'] = '0';
     else
@@ -61,7 +61,7 @@
     // graph 2 section:
     // this graph will withdraw from the DB all the avarage time from each city the exist in the DB from the first poll, and will return the answer using AJAX.
 
-    $result = $database -> query("select distinct QUES_11 from First_Poll");
+    $result = $database -> query("select distinct QUES_11 from first_poll");
     if ($result->num_rows == 0)
         $second_graph_data['response']['graph2_cities'] = null;
     else {
