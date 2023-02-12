@@ -1,14 +1,2 @@
-API
-רשימת ערים נפתחת שמביאה את שם העיר
-יש תל אביב יפו אד - ולא 14 גרסאות
-
-
 
 למלא דף שלה - זה שצריך להגיש
-
-
-
-<!-- define('DB_HOST','localhost');
-define('DB_USER', 'tomerbm_nirayal');
-define('DB_PASS', 'admin');
-define('DB_NAME', 'tomerbm_php_proj'); 

@@ -10,15 +10,6 @@ class User
     private $email;
     private $birth_day;
 
-    // public function __construct($user_name = null, $full_name = null, $password = null, $phone = null, $email = null, $birth_day = null)
-    // {
-    //     $this->user_name = $user_name;
-    //     $this->full_name = $full_name;
-    //     $this->password = self::EncPass($user_name,$password);
-    //     $this->phone = $phone;
-    //     $this->email = $email;
-    //     $this->birth_day = $birth_day;
-    // }
     public static function EncPass($user_name, $password)
     {
         return md5(md5($user_name).$password);

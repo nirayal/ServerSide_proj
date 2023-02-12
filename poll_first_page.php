@@ -37,6 +37,7 @@
             else{
                 $city = $city[0]['תעתיק'];
                 $_GET['city'] = $city;
+                $_SESSION['city'] = $city;
             }
         }
 
@@ -45,7 +46,7 @@
         else {
             $chars = str_split($_GET['area']);
             foreach ($chars as $char){
-                if(! (ctype_alpha($char) || $char = " ")){
+                if(! (ctype_alpha($char) || $char == " ")){
                     $error .= "Error:  Area must contain only letters.<br>";
                     break;
                 }

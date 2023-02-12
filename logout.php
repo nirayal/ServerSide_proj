@@ -2,7 +2,7 @@
 require_once('includes/init.php');
 
 $session->logout();
-header("Location: login.php")
 
+header("Location: login.php")
 
 ?>

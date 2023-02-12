@@ -1,5 +1,5 @@
 function done_poll(){
-    if(this.document.getElementById('final').innerText == "finito")
+    if(this.document.getElementById('final').innerText == "final mode activated")
     {
         document.getElementById('poll_real').style.display = 'none';
         document.getElementById('statistics_real').style.display = 'block';

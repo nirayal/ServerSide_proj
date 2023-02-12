@@ -70,7 +70,7 @@ if($_GET)
             <div id = "final">
                 <?php
                 if($poll->first_poll_is_final() == 'final' and $second_poll->second_poll_is_final() == "final" and $third_poll->third_poll_is_final() == "final")
-                    echo "finito";
+                    echo "final mode activated";
                 ?>
             </div>
             <div id = "non-final">
@@ -78,9 +78,5 @@ if($_GET)
             you will be able to see the statistics. but you wont be able to edit your poll again</p>
             <p><input type="submit" name = "poll_finish" value="Done"></p></div>
         </form>
-        
-        
-             
-
     </body>
 </html>

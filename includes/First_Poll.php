@@ -180,10 +180,8 @@ class First_Poll
 
         $this->find_first_poll_by_attribute('user_name', $_SESSION['user_name']);
         $sql = "select poll_status from first_poll where user_name = '".$_SESSION['user_name']."'";
-        // echo $sql;
+    
         $result = $database -> query($sql);
-        // print_r($result);
-        // print_r(mysqli_fetch_row($result)['0']);
         
         if(!$result)    
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;

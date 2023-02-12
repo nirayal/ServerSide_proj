@@ -152,9 +152,8 @@ class Third_Poll
 
         $this->find_third_poll_by_attribute('user_name', $_SESSION['user_name']);
         $sql = "select poll_status from third_poll where user_name = '".$_SESSION['user_name']."'";
-        // echo $sql;
+        
         $result = $database -> query($sql);
-        // print_r($result);
 
         if(!$result)    
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;

@@ -57,13 +57,3 @@ function updateText_q_32() {
         document.getElementById("yes").style.display = 'none';
     }
 }
-
-function citynamesUpdate(){            
-    let letters = document.getElementById("api").value;
-    console.log(letters);
-
-    result = fetch('https://data.gov.il/api/3/action/datastore_search?resource_id=351d4347-8ee0-4906-8e5b-9533aef13595&q=' + letters)
-    .then(data=>{return data.json()})
-    .then(res=>{console.log(res)})
-
-}

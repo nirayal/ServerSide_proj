@@ -89,6 +89,12 @@
             <a href="poll_first_page.php" class="previous pollpage">&#8249;</a>
             <a href="poll_third_page.php" class="next pollpage">&#8250;</a>
             <h3>Transportation Poll - part 2/3</h3>
+        
+            <p>The city that you choose is:<b>
+                <?php
+                    echo $_SESSION['city'];
+                ?>
+            </b>- in order to change it, go back to the previous page.</p><br>
 
             <p>1. How satisfied are you with the availability and reliability of public transportation in your area? 
                 <input type="range" min ="1" max ="5" name="q_21">

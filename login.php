@@ -56,7 +56,6 @@ if ($_POST) {
             ?>
             <hr>
             <div class="clearfix">
-                <!-- <button type = "button" class = "cancelbtn">Cancel</button> -->
                 <button type = "submit" class = "loginbtn buttonSignUP">Login</button>
             </div>
             <p>Don't have an account? <a href="sign_up.htm" class = "nodesign"><b>press here to register</b></a>.</p>

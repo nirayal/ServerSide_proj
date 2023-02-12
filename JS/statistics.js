@@ -93,6 +93,7 @@ window.onload = function data_statistics() {
         //graph 2
 
         var chart2 = new CanvasJS.Chart("chartContainer2", {
+            exportEnabled: true,
             animationEnabled: true,
             theme: "light2",
             title: {
@@ -120,6 +121,7 @@ window.onload = function data_statistics() {
 
         //graph 3
         var chart3 = new CanvasJS.Chart("chartContainer3", {
+            exportEnabled: true,
             animationEnabled: true,
             title:{
                 text: "Students who noticed changes in public transportaion in their recent year",
@@ -141,7 +143,8 @@ window.onload = function data_statistics() {
         //graph 4
         var chart4 = new CanvasJS.Chart("chartContainer4",
         {
-          title:{
+            exportEnabled: true,
+            title:{
             text: "Sudents opinion - MTA collage should invest in public transportaion",
             fontWeight: "bold",
             fontFamily: "calibri",
