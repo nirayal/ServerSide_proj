@@ -69,9 +69,6 @@ if($_GET)
             <h3>Final mode </h3>
             <div id = "final">
                 <?php
-                // echo ('nir1'.$poll->first_poll_is_final().'nir1<br>');
-                // echo ($second_poll->second_poll_is_final().'nir2<br>');
-                // echo ($third_poll->third_poll_is_final().'nir3<br>');
                 if($poll->first_poll_is_final() == 'final' and $second_poll->second_poll_is_final() == "final" and $third_poll->third_poll_is_final() == "final")
                     echo "finito";
                 ?>
