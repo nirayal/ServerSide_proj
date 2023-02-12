@@ -1,5 +1,5 @@
 <?php
-require_once("includes\init.php");
+require_once("init.php");
 
 
 class First_Poll
@@ -186,11 +186,14 @@ class First_Poll
         // echo $sql;
         $result = $database -> query($sql);
         // print_r($result);
-
+        // print_r(mysqli_fetch_row($result)['0']);
+        
         if(!$result)    
             $error = "coul'd not find poll. Error is :". $database -> get_connection() -> error;
-        
-        return mysqli_fetch_row($result)['0'];
+        if(mysqli_fetch_row($result)['0'] == 'final')
+            return "final";
+        else
+            return 'non-final';
     }
 }
 $poll = new First_Poll();

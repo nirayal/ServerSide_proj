@@ -1,9 +1,9 @@
 <?php
     require_once("includes\init.php");
-    require_once("questions_define.php");
-    require_once("First_Poll.php");
-    require_once("second_poll.php");
-    require_once("third_poll.php");
+    require_once("includes\questions_define.php");
+    require_once("includes\First_Poll.php");
+    require_once("includes\second_poll.php");
+    require_once("includes\\third_poll.php");
     
 
     if (!$session->signed_in){

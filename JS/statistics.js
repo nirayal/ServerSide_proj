@@ -1,7 +1,7 @@
 window.onload = function data_statistics() {
     var request = new XMLHttpRequest();
     request.onreadystatechange=function(){
-        var a;
+        // var a;
         if(request.readyState == 4 && request.status == 200)
         {
             //this is the return

@@ -1,9 +1,9 @@
 <?php
 require_once("includes\init.php");
 include("navbar.htm");
-require_once("First_Poll.php");
-require_once("Second_Poll.php");
-require_once("third_Poll.php");
+require_once("includes\First_Poll.php");
+require_once("includes\Second_Poll.php");
+require_once("includes\\third_Poll.php");
 
 
 if (!$session -> signed_in){
@@ -37,7 +37,12 @@ if($_GET)
             <p>the poll contain 3 sections. in the end of every section you can stop and continue at all time.</p><br>
             <p> Your Progress Is : 
                 <?php
-                $precentageOfProcess = $poll->first_poll_full_status() + $second_poll->second_poll_full_status() + $third_poll->third_poll_full_status();
+                $firstProccess = $poll->first_poll_full_status();
+                $secondProccess = $second_poll->second_poll_full_status();
+                $thirdProccess = $third_poll->third_poll_full_status();
+                if($firstProccess >= 1)
+                    $firstProccess = 1;
+                $precentageOfProcess = $firstProccess + $secondProccess + $thirdProccess;
                 if ($precentageOfProcess >= 3)
                     echo "<b>100%</b>";
                 else
@@ -64,6 +69,9 @@ if($_GET)
             <h3>Final mode </h3>
             <div id = "final">
                 <?php
+                // echo ('nir1'.$poll->first_poll_is_final().'nir1<br>');
+                // echo ($second_poll->second_poll_is_final().'nir2<br>');
+                // echo ($third_poll->third_poll_is_final().'nir3<br>');
                 if($poll->first_poll_is_final() == 'final' and $second_poll->second_poll_is_final() == "final" and $third_poll->third_poll_is_final() == "final")
                     echo "finito";
                 ?>
